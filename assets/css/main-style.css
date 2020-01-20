@@ -305,9 +305,18 @@ html body input:focus, html body input:hover {
   }
 }
 
+.azad-blog {
+  background: var(--text);
+  padding: 5rem 0;
+}
+
+.azad-blog article {
+  background: red;
+  margin-top: 1rem;
+}
+
 .azad-footer {
   background: var(--bg);
-  margin-top: 15rem;
   color: var(--white);
   padding: 5rem 0 0;
 }
