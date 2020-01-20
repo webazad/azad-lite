@@ -1,0 +1,153 @@
+.azad-header{
+    border-top:.001rem solid var(--border-top);
+    background: var(--white);
+    -webkit-box-shadow: var(--shadow);
+    -ms-box-shadow: var(--shadow);
+    -moz-box-shadow: var(--shadow);
+    box-shadow: var(--shadow);
+
+    .header-container{
+        display:flex;
+        flex-direction:row;
+        margin: 1rem 0;
+
+        .logo{
+            width: 100%;
+            text-align:left;
+            position:relative;
+
+            h1{
+                line-height:0;
+                a{
+                    display: inline-block;
+                }
+            }
+            .burger-button{
+                display: none;
+            }
+        }
+        .azad-nav{
+            width: 100%;
+
+            .desktop-menus{
+                height: 100%;
+
+                ul{
+                    display: flex;
+                    justify-content: flex-end;
+                    height:100%;
+                    align-items: center;
+
+                    li{
+                        a{
+                            color: var(--text);
+                            padding: .8rem;
+                            display: block;
+                        }
+                    }
+                }
+            }            
+        }
+    }
+    .mobile-menus{
+        display:none;
+        ul{
+            li{
+                display:none;
+                opacity: 0;
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 767px) {
+    .azad-header{
+        .header-container{
+            flex-direction:column;            
+            .logo{
+                text-align:center;
+                position:relative;
+
+                .burger-button{
+                    padding:5px;
+                    border-radius: 4px;
+                    background:var(--text);
+                    width: 40px;
+                    height: 40px;
+                    display:flex;
+                    align-items:center;
+                    position:absolute;
+                    top:50%;
+                    right:0;
+                    transform:translate(0%,-50%) rotate(0deg);                    
+
+                    span{
+                        position:relative;
+                        width: 100%;
+                        height: 4px;
+                        background:var(--white);
+
+                        &:before, &:after{
+                            content:'';
+                            display:block;
+                            width: 100%;
+                            height: 100%;
+                            position:absolute;
+                            top: -12px;
+                            background:var(--white);
+                            transition:all .5s ease-in-out;
+                        }
+                        &:after{
+                            top: 12px;
+                        }
+                    }
+                }
+                .burger-button.active{
+                    span{
+                        background:none;
+                        &:before,&:after{
+                            top:0;
+                        }
+                        &:before{
+                            transform:rotate(45deg);
+                        }
+                        &:after{
+                            transform:rotate(315deg);
+                        }
+                    }
+                }                                
+            }
+            .desktop-menus{
+                display: none;
+            }
+        }
+        .mobile-menus.active{
+            background:var(--bg);
+            display: block;            
+            color:var(--white);
+            padding:1rem 0;
+            ul{
+                li{                    
+                    display:block;
+                    opacity:1;
+                    animation:load 1s forwards;
+                    a{
+                        padding:10px 0;
+                        display:block;
+                        text-transfrom:uppercase;
+                    }
+                }
+                @keyframes load{
+                    0%{
+                        transform:translateY(-35px);
+                    }
+                    100%{
+                        opacity:1;
+                        transform:translateY(0px);
+                    }
+                }                
+            }            
+        }
+    }
+}

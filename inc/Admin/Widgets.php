@@ -17,7 +17,7 @@ if ( ! class_exists( 'Widgets' ) ):
             add_action('widgets_init',array($this,'azad_register_widget'));
             add_action('widgets_init',array($this,'azad_register_widgets'));
         }
-        public static function azad_register_widgets(){
+        public function azad_register_widgets(){
             $widgets = array(
                 array(
                     'name'=>'Search Result Sidebar',
@@ -84,9 +84,6 @@ if ( ! class_exists( 'Widgets' ) ):
                     'after_title'   => '</h3>'
                 ));
             }
-        }
-        public static function register() {
-            //echo 'Register';   
         }
         public static function get_instance(){
             if(is_null(self::$_instance) && ! isset(self::$_instance) && ! (self::$_instance instanceof self)){

@@ -1,8 +1,8 @@
 <?php
 /**
 *-----------------------------------------------------------------------------
-* :: @package textdomain
-* :: @version 0.0.1
+* :: @package azad-lite
+* :: @version 1.0.0
 *-----------------------------------------------------------------------------
 */
 namespace Inc;
@@ -67,17 +67,14 @@ if ( ! class_exists( 'Azad_Supports' ) ):
             // 4.. MULTIPLE MENU REGISTER SYSTEM
             if(function_exists('register_nav_menus')){
                 register_nav_menus(array(
-                    'header_menu_one'   => __('Header Menu One', 'theme_text_domain'),
-                    'sidebar_menu_one' => __('Sidebar Menu One', 'theme_text_domain'),
-                    'footer_menu_one'  => __('Footer Menu One', 'theme_text_domain'),
-                    'footer_menu_two'  => __('Footer Menu Two', 'theme_text_domain'),
-                    'footer_menu_three'=> __('Footer Menu Three', 'theme_text_domain'),
-                    'footer_menu_four' => __('Footer Menu Four', 'theme_text_domain')
+                    'header_menu_one'   => __('Header Menu One', 'azad-lite'),
+                    'sidebar_menu_one' => __('Sidebar Menu One', 'azad-lite'),
+                    'footer_menu_one'  => __('Footer Menu One', 'azad-lite'),
+                    'footer_menu_two'  => __('Footer Menu Two', 'azad-lite'),
+                    'footer_menu_three'=> __('Footer Menu Three', 'azad-lite'),
+                    'footer_menu_four' => __('Footer Menu Four', 'azad-lite')
                 ));
             } 
-        }
-        public static function register() {
-            //echo 'Register';   
         }
         public static function get_instance(){
             if(is_null(self::$_instance) && ! isset(self::$_instance) && ! (self::$_instance instanceof self)){

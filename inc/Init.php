@@ -16,9 +16,9 @@ if ( ! class_exists( 'Init' ) ):
         public static function get_services() {
             return [
                 Azad_Supports::class,
+                Enqueue::class,
+                Admin\Widgets::class,
                 //Admin\Azad_Users::class,
-                //Admin\Enqueue::class,
-                //Admin\Widgets::class,
                 //Admin\Custom_Posts::class
             ];   
         }

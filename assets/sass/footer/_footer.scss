@@ -1,0 +1,13 @@
+.azad-footer{
+    background: var(--bg);
+    margin-top:5rem;
+    color: var(--white);
+    padding: 1rem 0;
+
+    .footer-container{
+        overflow:overlay;
+        p{
+            margin: 0;
+        }
+    }    
+}
