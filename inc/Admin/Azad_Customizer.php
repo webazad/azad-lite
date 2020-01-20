@@ -42,7 +42,7 @@ if ( ! class_exists( 'Azad_Customizer' ) ):
 			$wp_customize->add_section( 'footer_text', array(
                 'title'             => __( 'Footer Text', 'twentytwelve-child' ),
                 'priority'          => 101,
-                'description'       => 'Write something here...', 
+                'description'       => 'All about footer...', 
                 'priority'          => 11,
                 'panel'             => 'footer_panel',
                 'capability'        => 'edit_theme_options'
@@ -56,6 +56,14 @@ if ( ! class_exists( 'Azad_Customizer' ) ):
                 'default'           => 'Write copyright text here...',
                 'transport'         => 'refresh',
             ) );
+            $wp_customize->add_setting( 'copyright_bg', array(
+                'default'           => 'Copyright background is here',
+                'transport'         => 'refresh',
+            ) );
+            $wp_customize->add_setting( 'copyright_color', array(
+                'default'           => 'Copyright color is here',
+                'transport'         => 'refresh',
+            ) );
         }
         public function azad_add_controls( $wp_customize ) {
             $wp_customize->add_control( new \WP_Customize_Image_Control( $wp_customize, 'auto_add_featured_image', array(
@@ -66,10 +74,22 @@ if ( ! class_exists( 'Azad_Customizer' ) ):
             ) ) );
 			$wp_customize->add_control( 'copyright_text',  array(
                 'label'             => 'Write copyright text here...',
-                'description'       => 'Write something here...',        
+                'description'       => 'Write copyright text...',        
                 'section'           => 'footer_text',
                 'type'              => 'text',    
             ) );
+            $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'copyright_bg', array(
+                'label'             => 'Select background color for footer',
+                'description'       => 'Select color...',        
+                'section'           => 'footer_text',
+                'settings'          => 'copyright_bg',    
+            ) ) );
+            $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'copyright_color', array(
+                'label'             => 'Select text color for footer',
+                'description'       => 'Select color...',        
+                'section'           => 'footer_text',
+                'settings'          => 'copyright_color',    
+            ) ) );
         }
         public static function register() {
             //echo 'Register';   

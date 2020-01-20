@@ -2,12 +2,34 @@
     background: var(--bg);
     margin-top:15rem;
     color: var(--white);
-    padding: 1rem 0;
+    padding: 5rem 0 0;
 
-    .footer-container{
-        overflow:overlay;
-        p{
-            margin: 0;
+    .footer-top{
+        padding: 0 0 5rem;
+        .footer-container{
+            display:flex;
+            .footer-widget-1, .footer-widget-2, .footer-widget-3{
+                width: 100%;
+                text-align:left;
+                h3{
+                    margin-bottom: 1rem;
+                }
+            }
+            .footer-widget-1{
+                text-align: left;
+            }
+            .footer-widget-2{
+                text-align: left;
+            }
         }
-    }    
+    }
+    .azad-copyright{
+        padding: 1rem 0;
+        .copyright-container{
+            overflow:overlay;
+            p{
+                margin: 0;
+            }
+        }
+    }        
 }
