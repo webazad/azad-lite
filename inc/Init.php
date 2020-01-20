@@ -18,7 +18,8 @@ if ( ! class_exists( 'Init' ) ):
                 Azad_Supports::class,
                 Enqueue::class,
                 Admin\Widgets::class,
-                //Admin\Azad_Users::class,
+                Admin\Azad_Customizer::class,
+                Admin\Azad_Users::class,
                 //Admin\Custom_Posts::class
             ];   
         }

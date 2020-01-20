@@ -15,7 +15,6 @@ if ( ! class_exists( 'Azad_Customizer' ) ):
         private static $_instance;
         public function __construct() {
 			add_action( 'customize_register', array( $this, 'register_customize_azad' ) );
-            //https://wordpress.stackexchange.com/questions/340639/fatal-error-class-wp-customize-image-control-not-found
         }
         public function register_customize_azad( $wp_customize ) {
             $this->azad_add_panels( $wp_customize );        
@@ -27,7 +26,7 @@ if ( ! class_exists( 'Azad_Customizer' ) ):
             $wp_customize->add_panel('footer_panel',array(
                 'title'             => __('Footer Panel','azad'),
                 'description'       => 'Footer',
-                'priority'          => 10,
+                'priority'          => 125,
                 'capability'        => 'edit_theme_options'
             ));
         }
