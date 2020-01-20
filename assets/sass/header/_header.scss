@@ -50,13 +50,7 @@
         }
     }
     .mobile-menus{
-        display:none;
-        ul{
-            li{
-                display:none;
-                opacity: 0;
-            }
-        }
+        display: none;
     }
 }
 
@@ -122,29 +116,17 @@
                 display: none;
             }
         }
-        .mobile-menus.active{
-            background:var(--bg);
-            display: block;            
-            color:var(--white);
+        .mobile-menus{
+            background:var(--text);         
+            color:var(--black);
             padding:1rem 0;
             ul{
-                li{                    
-                    display:block;
-                    opacity:1;
-                    animation:load 1s forwards;
+                li{
                     a{
                         padding:10px 0;
+                        color:var(--white);
                         display:block;
-                        text-transfrom:uppercase;
-                    }
-                }
-                @keyframes load{
-                    0%{
-                        transform:translateY(-35px);
-                    }
-                    100%{
-                        opacity:1;
-                        transform:translateY(0px);
+                        text-transform:uppercase;
                     }
                 }                
             }            
