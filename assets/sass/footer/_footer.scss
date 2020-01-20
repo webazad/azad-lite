@@ -8,6 +8,7 @@
         padding: 0 0 5rem;
         .footer-container{
             display:flex;
+            flex-direction:row;
             .footer-widget-1, .footer-widget-2, .footer-widget-3{
                 width: 100%;
                 text-align:left;
@@ -32,4 +33,19 @@
             }
         }
     }        
+}
+
+@media only screen and (max-width: 767px) {
+    .azad-footer{
+        .footer-top{
+            .footer-container{
+                display:flex;
+                flex-direction:column;
+
+                .footer-widget-2, .footer-widget-3{
+                    margin-top:2rem;
+                }
+            }
+        }
+    }
 }
