@@ -1,0 +1,17 @@
+{
+    "name": "azad/oop",
+    "description": "OOP",
+    "type": "oop",
+    "license": "GPLv",
+    "authors": [
+        {
+            "name": "Azad",
+            "email": "webdevazad@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload":{
+        "psr-4":{"Inc\\":"./inc"}
+    }
+}

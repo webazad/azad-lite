@@ -1,0 +1,28 @@
+/**
+*-----------------------------------------------------------------------------------------------------------------------------
+* ::    RESET CODE
+*-----------------------------------------------------------------------------------------------------------------------------
+*/
+html, body, div, span, applet, object, iframe, pre, a, abbr, acronym, big, cite, code, del, dfn, ins, kbd, q, s, samp, small, strike, sub, sup, tt, var, b, u, i, hr, center, dl, dt, dd, fieldset, form, label, lagend, table, caption, thead, tbody, tfoot, th, tr, td, section, article, aside, header, hgroup, nav, menu, footer, h1, h2, h3, h4, h5, h6, p, blockquote, address, time, mark, span, em, strong, img, ol, ul, li, figure, figcaption, details, embed, canvas, audio, video, output, ruby, summary, input {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    font: inherit;
+    background: transparent;
+    -webkit-box-sizing: border-box;
+    -mz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/**
+*-----------------------------------------------------------------------------------------------------------------------------
+*   = HTML5 DISPLAY RULE
+*-----------------------------------------------------------------------------------------------------------------------------
+*/
+address, article, aside, canvas, details, figure, figure img, figcaption, footer, header, hgroup, menu, nav, section, summary, main, audio, video {
+    display: block;
+}

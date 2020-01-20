@@ -1,0 +1,21 @@
+/**
+*-----------------------------------------------------------------------------------------------------------------------------
+*   = GLOBAL STYLE
+*-----------------------------------------------------------------------------------------------------------------------------
+*/
+body, *, html{
+    cursor: url(https://cregital.com/wp-content/uploads/2016/02/cursor-default.svg), default !important;
+}
+body {
+    text-align: center;
+}
+::selection {
+    color: #00baba !important;
+    background-color: rgba(0,186,186,0.1) !important;
+}
+
+section{
+    text-align: center;
+    background: #ffffff;
+    padding: 30px 0;
+}
