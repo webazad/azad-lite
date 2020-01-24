@@ -16,15 +16,17 @@
     <?php
     	if(is_front_page()):
             $custom_classes = array('yes_class_1','yes_class_2');
-	else:
+        else:
             $custom_classes = array('no_class_1','no_class_2');
-	endif;
+        endif;
     ?>
     <body <?php body_class($custom_classes); ?>>
         <!-- BIG WRAPPER BEGINS -->
         <div class="big-wrapper">
             <!-- HEADER SECTION BEGINS -->
             <header class="azad-header">
+                <?php //get_template_part('template-parts/header-top.php'); ?>
+                <?php azad_header_top(); ?>
                 <div class="azad-container">
                     <div class="header-container">
                         <div class="logo">
@@ -100,5 +102,3 @@
                     ?>
                 </nav>
             </header><!-- ends header section -->
-	
-

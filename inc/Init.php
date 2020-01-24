@@ -12,7 +12,12 @@ defined('ABSPATH') || exit;
 if ( ! class_exists( 'Init' ) ):
     final class Init{
         public $theme_name;
-        public function __construct() {}
+        public function __construct() {
+            $this->includes();
+        }
+        public function includes() {
+            //require_once dirname(__FILE__) . '/azad-hooks.php';
+        }
         public static function get_services() {
             return [
                 Azad_Supports::class,
