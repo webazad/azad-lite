@@ -7,10 +7,13 @@
  */
 get_header(); ?>
 <!-- SPECIAL SECTION BEGINS -->
-<section class="azad-404">
-    <p><?php _e( 'Apologies, but the page you requested could not be found. Perhaps searching will help.', 'twentyten' ); ?></p>
-    <?php get_search_form(); ?>
-    <?php get_sidebar(); ?>
+<section class="azad-search">
+    <div class="azad-container">
+        <?php 
+            get_template_part('loop','search'); 
+            get_sidebar();
+        ?>
+    </div>
 </section><!-- ends special section -->
 <?php get_footer(); ?>
 

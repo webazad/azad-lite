@@ -64,6 +64,7 @@ html body {
 html body .azad-container {
   width: var(--width);
   margin: 0 auto;
+  overflow: overlay;
 }
 
 html body .azad-section {
@@ -313,6 +314,27 @@ html body input:focus, html body input:hover {
 .azad-blog article {
   background: red;
   margin-top: 1rem;
+}
+
+.azad-search {
+  background: var(--text);
+  padding: 5rem 0;
+}
+
+.azad-search .azad-content {
+  background: var(--white);
+  margin-top: 1rem;
+  text-align: left;
+  padding: 1rem;
+}
+
+.azad-search .azad-content:first-child {
+  margin-top: 0;
+}
+
+.azad-404 {
+  background: var(--text);
+  padding: 5rem 0;
 }
 
 .azad-footer {

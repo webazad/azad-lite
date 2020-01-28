@@ -5,10 +5,7 @@
 * :: @version 1.0.0
 *-------------------------------------------------------------------------------------------------
  */
-
-get_header();
-
-get_template_part('slug','name'); ?>
+get_header(); ?>
 <!-- SPECIAL SECTION BEGINS -->
 <section class="azad-blog">	
 	<div class="azad-container">
