@@ -1,7 +1,7 @@
-<div class="the_article">
+<div class="azad-post">
 	<?php if(have_posts()) : ?>
 		<?php while(have_posts()) : the_post(); ?>
-			<article class="">
+			<article class="azad-content">
 				<div class="azad-thumb">
 					<?php the_post_thumbnail(); ?>
 				</div>
