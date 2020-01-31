@@ -16,6 +16,9 @@ if ( ! class_exists( 'Enqueue' ) ):
 
             wp_register_script('menu',trailingslashit(get_template_directory_uri()).'assets/js/toggle-menu.js',array('jquery'),wp_get_theme('azad-lite')->get( 'Version' ),true);
             wp_enqueue_script('menu');
+
+            wp_register_script('preloader',trailingslashit(get_template_directory_uri()).'assets/js/preloader.js',array('jquery'),wp_get_theme('azad-lite')->get( 'Version' ),true);
+            wp_enqueue_script('preloader');
         }
         
         public static function get_instance(){

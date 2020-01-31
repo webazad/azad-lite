@@ -66,6 +66,8 @@
                 </div>
             </footer><!-- ends footer -->
         </div><!-- ends big wrapper -->
+		<!-- CLICK AUDIO -->
+        <audio id="hamburger-hover" src="<?php echo get_template_directory_uri(); ?>/assets/audio/link.mp3" preload="auto"></audio>
         <!-- TO MAKE THE PLUGINS DO WORK -->
         <?php wp_footer(); ?>
     </body>

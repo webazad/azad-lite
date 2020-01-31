@@ -21,6 +21,14 @@
         endif;
     ?>
     <body <?php body_class($custom_classes); ?>>
+        <!-- PRELOADER BEGINS -->
+        <div class="preloader">
+            <div class="inner">
+                <figure class="logo"><img src="<?php echo get_template_directory_uri(); ?>/assets/imgs/logo-header.png" alt="Image"></figure>
+                <span class="percentage"></span>
+            </div>
+        </div>
+        <div class="transition-overlay"></div><!-- ends preloader -->
         <!-- BIG WRAPPER BEGINS -->
         <div class="big-wrapper">
             <!-- HEADER SECTION BEGINS -->
@@ -39,7 +47,7 @@
                                     }
                                 ?>
                             </h1>
-                            <div class="burger-button"><span></span></div>
+                            <div id="hamburger-menu" class="burger-button"><span></span></div>
                         </div>
                         <div class="azad-nav">
                             <nav class="desktop-menus">
