@@ -30,3 +30,8 @@
         
     })
 })(jQuery);
+
+// HAMBURGER AUDIO
+document.getElementById("hamburger-menu").addEventListener('click', function(e) {
+    document.getElementById("hamburger-hover").play();
+});
