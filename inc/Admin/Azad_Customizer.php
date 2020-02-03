@@ -23,16 +23,30 @@ if ( ! class_exists( 'Azad_Customizer' ) ):
             $this->azad_add_controls( $wp_customize );         
         }
         public function azad_add_panels( $wp_customize ) {
+            $wp_customize->add_panel('global_panel',array(
+                'title'             => __('Global Settings','azad-lite'),
+                'description'       => 'Globals',
+                'priority'          => 1,
+                'capability'        => 'edit_theme_options'
+            ));
             $wp_customize->add_panel('footer_panel',array(
-                'title'             => __('Footer Panel','azad'),
+                'title'             => __('Footer Panel','azad-lite'),
                 'description'       => 'Footer',
                 'priority'          => 125,
                 'capability'        => 'edit_theme_options'
             ));
         }
         public function azad_add_sections( $wp_customize ) {
+            $wp_customize->add_section( 'global_section', array(
+                'title'             => __( 'Base Colors', 'azad-lite' ),
+                'priority'          => 10,
+                'description'       => 'Write something here...', 
+                'priority'          => 11,
+                'panel'             => 'global_panel',
+                'capability'        => 'edit_theme_options'
+            ) );
             $wp_customize->add_section( 'footer_logo', array(
-                'title'    => __( 'Footer logo', 'twentytwelve-child' ),
+                'title'    => __( 'Footer logo', 'azad-lite' ),
                 'priority' => 101,
                 'description'       => 'Write something here...', 
                 'priority'          => 11,
@@ -40,7 +54,7 @@ if ( ! class_exists( 'Azad_Customizer' ) ):
                 'capability'        => 'edit_theme_options'
             ) );
 			$wp_customize->add_section( 'footer_text', array(
-                'title'             => __( 'Footer Text', 'twentytwelve-child' ),
+                'title'             => __( 'Footer Text', 'azad-lite' ),
                 'priority'          => 101,
                 'description'       => 'All about footer...', 
                 'priority'          => 11,
@@ -49,6 +63,10 @@ if ( ! class_exists( 'Azad_Customizer' ) ):
             ) );
         }
         public function azad_add_settings( $wp_customize ) {
+            // BASE COLORS
+            $wp_customize->add_setting( 'global_settings', array(
+                'default'           => true,
+            ) );
             $wp_customize->add_setting( 'footer_logo_image', array(
                 'default'           => true,
             ) );
@@ -66,6 +84,56 @@ if ( ! class_exists( 'Azad_Customizer' ) ):
             ) );
         }
         public function azad_add_controls( $wp_customize ) {
+            // BASE COLORS
+            $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'bg_body', array(
+                'label'             => 'Select background color for footer',
+                'description'       => 'Select color...',        
+                'section'           => 'global_section',
+                'settings'          => 'global_settings',    
+            ) ) );
+            $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'bg', array(
+                'label'             => 'Select background color for footer',
+                'description'       => 'Select color...',        
+                'section'           => 'global_section',
+                'settings'          => 'global_settings',    
+            ) ) );
+            $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'bg_hover', array(
+                'label'             => 'Select background color for footer',
+                'description'       => 'Select color...',        
+                'section'           => 'global_section',
+                'settings'          => 'global_settings',    
+            ) ) );
+            $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'text', array(
+                'label'             => 'Select background color for footer',
+                'description'       => 'Select color...',        
+                'section'           => 'global_section',
+                'settings'          => 'global_settings',    
+            ) ) );
+            $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'text_hover', array(
+                'label'             => 'Select background color for footer',
+                'description'       => 'Select color...',        
+                'section'           => 'global_section',
+                'settings'          => 'global_settings',    
+            ) ) );
+            $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'black', array(
+                'label'             => 'Select background color for footer',
+                'description'       => 'Select color...',        
+                'section'           => 'global_section',
+                'settings'          => 'global_settings',    
+            ) ) );
+            $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'white', array(
+                'label'             => 'Select background color for footer',
+                'description'       => 'Select color...',        
+                'section'           => 'global_section',
+                'settings'          => 'global_settings',    
+            ) ) );
+            $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'transparent', array(
+                'label'             => 'Select background color for footer',
+                'description'       => 'Select color...',        
+                'section'           => 'global_section',
+                'settings'          => 'global_settings',    
+            ) ) );
+            // FOOTER LOGO
             $wp_customize->add_control( new \WP_Customize_Image_Control( $wp_customize, 'auto_add_featured_image', array(
                 'label'             => 'Upload Your Logo',
                 'description'       => 'Write something here...',        
@@ -90,9 +158,6 @@ if ( ! class_exists( 'Azad_Customizer' ) ):
                 'section'           => 'footer_text',
                 'settings'          => 'copyright_color',    
             ) ) );
-        }
-        public static function register() {
-            //echo 'Register';   
         }
         public static function get_instance(){
             if(is_null(self::$_instance) && ! isset(self::$_instance) && ! (self::$_instance instanceof self)){
