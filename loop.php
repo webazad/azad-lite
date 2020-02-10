@@ -13,7 +13,10 @@
 				</div><!-- .entry-meta -->
 				<div class="azad-content">
 					<?php the_content(); ?>                                
-				</div>				
+				</div>
+				<div class="entry-utility">
+					<?php azad_posted_in(); ?>
+				</div><!-- .entry-utility -->
 			</article>                        
 		<?php endwhile; ?>
 	<?php endif; ?>
