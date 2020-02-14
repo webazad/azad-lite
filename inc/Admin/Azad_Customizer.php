@@ -67,6 +67,9 @@ if ( ! class_exists( 'Azad_Customizer' ) ):
             $wp_customize->add_setting( 'global_settings', array(
                 'default'           => true,
             ) );
+			$wp_customize->add_setting( 'enable_header_search', array(
+                'default'           => true,
+            ) );
             $wp_customize->add_setting( 'footer_logo_image', array(
                 'default'           => true,
             ) );
@@ -133,6 +136,12 @@ if ( ! class_exists( 'Azad_Customizer' ) ):
                 'section'           => 'global_section',
                 'settings'          => 'global_settings',    
             ) ) );
+			$wp_customize->add_control( 'enable_header_search',array(
+					'type'     => 'checkbox',
+					'section'  => 'global_section',
+					'priority' => 10,
+					'label'    => __( 'Show search in header', 'twentytwenty' ),
+				) );
             // FOOTER LOGO
             $wp_customize->add_control( new \WP_Customize_Image_Control( $wp_customize, 'auto_add_featured_image', array(
                 'label'             => 'Upload Your Logo',
