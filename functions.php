@@ -26,10 +26,10 @@ require_once AZAD_LITE_DIR . '/inc/azad-hooks.php';
 if(! function_exists('azad_posted_on')){
 	function azad_posted_on(){
 		printf(__(
-			'<span class="%1$s">Posted on </span> %2$s <span class="meta-sep">by</span> %3$s','azad-x'),
+			'<span class="%1$s">Posted on </span> %2$s <span class="meta-sep">by</span>%3$s','azad-x'),
 			'meta-prep meta-prep-author',
 			sprintf(
-				'<a href="%1$s" title="%2$s" rel="bookmark"><span class="entry-date">%3$s</span></a>',
+				'<a href="%1$s" title="%2$s" rel="bookmark"><span class="entry-date"> ' . twentytwenty_the_theme_svg( 'calendar' ) . '%3$s</span></a>',
 				get_permalink(),
 				esc_attr(get_the_time()),
 				get_the_date()
@@ -43,6 +43,7 @@ if(! function_exists('azad_posted_on')){
 		);
 	}
 }
+
 if(! function_exists('azad_posted_in')){
 	function azad_posted_in(){
 		$tag_list = get_the_tag_list('',', ');
@@ -62,6 +63,14 @@ if(! function_exists('azad_posted_in')){
 		);
 	}
 }
+
+function twentytwenty_no_js_class() {
+	?>
+	<script>document.documentElement.className = document.documentElement.className.replace( 'no-js', 'js' );</script>
+	<?php
+}
+
+add_action( 'wp_head', 'twentytwenty_no_js_class' );
 
 if ( ! class_exists( 'TwentyTwenty_SVG_Icons' ) ) {
 	/**
@@ -299,7 +308,6 @@ if ( ! function_exists( 'twentytwenty_the_theme_svg' ) ) {
 		echo twentytwenty_get_theme_svg( $svg_name, $group, $color );
 	}
 }
-
 
 if ( ! function_exists( 'twentytwenty_get_theme_svg' ) ) {
 	function twentytwenty_get_theme_svg( $svg_name, $group = 'ui', $color = '' ) {

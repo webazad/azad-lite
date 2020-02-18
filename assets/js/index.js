@@ -92,7 +92,15 @@ twentytwenty.coverModals = {
 		if ( document.querySelector( '.cover-modal' ) ) {
 			// Handle cover modals when they're toggled
 			this.onToggle();
-			//this.hideAndShowModals();
+
+			// When toggled, untoggle if visitor clicks on the wrapping element of the modal
+			this.outsideUntoggle();
+
+			// Close on escape key press
+			//this.closeOnEscape();
+
+			// Hide and show modals before and after their animations have played out
+			this.hideAndShowModals();
 		}
 	},
 	// Handle cover modals when they're toggled
@@ -116,6 +124,30 @@ twentytwenty.coverModals = {
 			} );
 		} );
 	},
+
+	// Close modal on outside click
+	outsideUntoggle: function() {
+		document.addEventListener( 'click', function( event ) {
+			var target = event.target;
+			var modal = document.querySelector( '.cover-modal.active' );
+
+			if ( target === modal ) {
+				this.untoggleModal( target );
+			}
+		}.bind( this ) );
+	},
+
+	// Close modal on escape key press
+	closeOnEscape: function() {
+		document.addEventListener( 'keydown', function( event ) {
+			if ( event.keyCode === 27 ) {
+				event.preventDefault();
+				document.querySelectorAll( '.cover-modal.active' ).forEach( function( element ) {
+					this.untoggleModal( element );
+				}.bind( this ) );
+			}
+		}.bind( this ) );
+	},
 	// Hide and show modals before and after their animations have played out
 	hideAndShowModals: function() {
 		var _doc = document,
@@ -124,6 +156,18 @@ twentytwenty.coverModals = {
 			htmlStyle = _doc.documentElement.style,
 			adminBar = _doc.querySelector( '#wpadminbar' );
 		
+		function getAdminBarHeight( negativeValue ) {
+			var height,
+				currentScroll = _win.pageYOffset;
+
+			if ( adminBar ) {
+				height = currentScroll + adminBar.getBoundingClientRect().height;
+
+				return negativeValue ? -height : height;
+			}
+
+			return currentScroll === 0 ? 0 : -currentScroll;
+		}
 		function htmlStyles() {
 			var overflow = _win.innerHeight > _doc.documentElement.getBoundingClientRect().height;
 
@@ -135,34 +179,116 @@ twentytwenty.coverModals = {
 				left: 0
 			};
 		}
+		// Show the modal
 		modals.forEach( function( modal ) {
 			modal.addEventListener( 'toggle-target-before-inactive', function( event ) {
-				var styles = htmlStyles(),
+				var styles = htmlStyles();
 					offsetY = _win.pageYOffset,
 					paddingTop = ( Math.abs( getAdminBarHeight() ) - offsetY ) + 'px',
 					mQuery = _win.matchMedia( '(max-width: 600px)' );
-			});
+
+				if ( event.target !== modal ) {
+					return;
+				}
+
+				Object.keys( styles ).forEach( function( styleKey ) {
+					htmlStyle.setProperty( styleKey, styles[ styleKey ] );
+				} );
+
+				_win.twentytwenty.scrolled = parseInt( styles.top, 10 );
+
+				if ( adminBar ) {
+					_doc.body.style.setProperty( 'padding-top', paddingTop );
+
+					if ( mQuery.matches ) {
+						if ( offsetY >= getAdminBarHeight() ) {
+							modal.style.setProperty( 'top', 0 );
+						} else {
+							modal.style.setProperty( 'top', ( getAdminBarHeight() - offsetY ) + 'px' );
+						}
+					}
+				}
+
+				modal.classList.add( 'show-modal' );
+			} );
+
+			// Hide the modal after a delay, so animations have time to play out
+			modal.addEventListener( 'toggle-target-after-inactive', function( event ) {
+				if ( event.target !== modal ) {
+					return;
+				}
+
+				setTimeout( function() {
+					var clickedEl = twentytwenty.toggles.clickedEl;
+
+					modal.classList.remove( 'show-modal' );
+
+					Object.keys( htmlStyles() ).forEach( function( styleKey ) {
+						htmlStyle.removeProperty( styleKey );
+					} );
+
+					if ( adminBar ) {
+						_doc.body.style.removeProperty( 'padding-top' );
+						modal.style.removeProperty( 'top' );
+					}
+
+					if ( clickedEl !== false ) {
+						clickedEl.focus();
+						clickedEl = false;
+					}
+
+					_win.scrollTo( 0, Math.abs( _win.twentytwenty.scrolled + getAdminBarHeight() ) );
+
+					_win.twentytwenty.scrolled = 0;
+				}, 500 );
+			} );
 		} );
+	},
+	// Untoggle a modal
+	untoggleModal: function( modal ) {
+		var modalTargetClass,
+			modalToggle = false;
+
+		// If the modal has specified the string (ID or class) used by toggles to target it, untoggle the toggles with that target string
+		// The modal-target-string must match the string toggles use to target the modal
+		if ( modal.dataset.modalTargetString ) {
+			modalTargetClass = modal.dataset.modalTargetString;
+
+			modalToggle = document.querySelector( '*[data-toggle-target="' + modalTargetClass + '"]' );
+		}
+
+		// If a modal toggle exists, trigger it so all of the toggle options are included
+		if ( modalToggle ) {
+			modalToggle.click();
+
+			// If one doesn't exist, just hide the modal
+		} else {
+			modal.classList.remove( 'active' );
+		}
 	}
-}
+}; // twentytwenty.coverModals
 
 /*	-----------------------------------------------------------------------------------------------
 	Toggles
 --------------------------------------------------------------------------------------------------- */
 
 twentytwenty.toggles = {
+
+	clickedEl: false,
+
     init: function(){
         this.toggle();
     },
     performToggle: function( element, instantly ){
+		
         var target, timeOutTime, classToToggle,
 			self = this,
 			_doc = document,
 			// Get our targets
 			toggle = element,
 			targetString = toggle.dataset.toggleTarget,
-            activeClass = 'active';
-		
+			activeClass = 'active';
+					
 		// Elements to focus after modals are closed
 		if ( ! _doc.querySelectorAll( '.show-modal' ).length ) {
 			self.clickedEl = _doc.activeElement;
@@ -171,14 +297,14 @@ twentytwenty.toggles = {
 		if ( targetString === 'next' ) {
 			target = toggle.nextSibling;
 		} else {
-			target = _doc.querySelector( targetString );
+		 	target = _doc.querySelector( targetString );
 		}
 		
 		// Trigger events on the toggle targets before they are toggled
 		if ( target.classList.contains( activeClass ) ) {
-			//target.dispatchEvent( twentytwenty.createEvent( 'toggle-target-before-active' ) );
+			target.dispatchEvent( twentytwenty.createEvent( 'toggle-target-before-active' ) );
 		} else {
-			//target.dispatchEvent( twentytwenty.createEvent( 'toggle-target-before-inactive' ) );
+			target.dispatchEvent( twentytwenty.createEvent( 'toggle-target-before-inactive' ) );
 		}
 		
 		// Get the class to toggle, if specified
@@ -210,7 +336,7 @@ twentytwenty.toggles = {
 			if ( self.clickedEl && -1 !== toggle.getAttribute( 'class' ).indexOf( 'close-' ) ) {
 				twentytwentyToggleAttribute( self.clickedEl, 'aria-expanded', 'true', 'false' );
 			}
-			
+
 			// Toggle body class
 			if ( toggle.dataset.toggleBodyClass ) {
 				_doc.body.classList.toggle( toggle.dataset.toggleBodyClass );
@@ -218,6 +344,13 @@ twentytwenty.toggles = {
 			
 			// Trigger the toggled event on the toggle target
 			target.dispatchEvent( twentytwenty.createEvent( 'toggled' ) );
+
+			// Trigger events on the toggle targets after they are toggled
+			if ( target.classList.contains( activeClass ) ) {
+				target.dispatchEvent( twentytwenty.createEvent( 'toggle-target-after-active' ) );
+			} else {
+				target.dispatchEvent( twentytwenty.createEvent( 'toggle-target-after-inactive' ) );
+			}
 		}, timeOutTime );
     },
     toggle: function(){
@@ -267,7 +400,6 @@ function twentytwentyToggleAttribute( element, attribute, trueVal, falseVal ) {
 		element.setAttribute( attribute, falseVal );
 	}
 }
-
 
 /**
  * Toggle a menu item on or off.
@@ -389,3 +521,6 @@ function twentytwentyFindParents( target, query ) {
 
 	return parents;
 }
+
+
+//asdf
