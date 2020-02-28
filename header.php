@@ -22,14 +22,21 @@
         endif;
     ?>
     <body <?php body_class($custom_classes); ?>>
-        <!-- PRELOADER BEGINS -->
-        <div class="preloader">
-            <div class="inner">
-                <figure class="logo"><img src="<?php echo get_template_directory_uri(); ?>/assets/imgs/logo-header.png" alt="Image"></figure>
-                <span class="percentage"></span>
+        <?php        
+            // Check whether the preloader is activated in the customizer.
+            $enable_preloader = get_theme_mod( 'preloader_settings', true );	
+            
+            if($enable_preloader) : ?>
+            <!-- PRELOADER BEGINS -->
+            <div class="preloader">
+                <div class="inner">
+                    <figure class="logo"><img src="<?php echo get_template_directory_uri(); ?>/assets/imgs/logo-header.png" alt="Image"></figure>
+                    <span class="percentage"></span>
+                </div>
             </div>
-        </div>
-        <div class="transition-overlay"></div><!-- ends preloader -->
+            <div class="transition-overlay"></div><!-- ends preloader -->
+        <?php endif; ?>
+
         <!-- BIG WRAPPER BEGINS -->
         <div class="big-wrapper">
             <!-- HEADER SECTION BEGINS -->
@@ -43,9 +50,9 @@
                                 <?php
                                     if(has_custom_logo()){
                                         the_custom_logo();                             
-                                    }else{
-                                        bloginfo('name');
-                                    }
+                                    }else{ ?>
+                                        <a href="<?php echo site_url(); ?>"><?php bloginfo('name'); ?></a>
+                                    <?php }
                                 ?>
                             </h1>
                             <div id="hamburger-menu" class="burger-button"><span></span></div>
@@ -56,7 +63,7 @@
                                 <?php 
                                     if(function_exists('wp_nav_menu')){
                                         $defaults = array(
-                                            'theme_location'  => 'header_menu_one',
+                                            'theme_location'  => 'header_main_menu',
                                             'menu'            => '',
                                             'container'       => 'div',
                                             'container_class' => '',
@@ -89,7 +96,7 @@
                                         <div class="toggle-wrapper search-toggle-wrapper">
                                             <button class="toggle search-toggle desktop-search-toggle" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false">
                                                 <span class="toggle-inner">
-                                                <?php twentytwenty_the_theme_svg( 'search' ); ?>
+                                                <?php azad_the_svg( 'search' ); ?>
                                                     <!--span class="toggle-text">Search</span-->
                                                 </span>
                                             </button><!-- .search-toggle -->

@@ -12,7 +12,12 @@
 					<div class="azad-container">
 						<div class="footer-container">
 							<div class="footer-widget-1">
-								<img src="<?php echo get_theme_mod('footer_logo_image'); ?>" />
+								<!--  THE WAY SHOW DYNAMIC SIDEBAR -->
+								<?php if ( !dynamic_sidebar( 'footer_widget_one' ) ) : ?>
+									<aside id="search" class="widget">
+										<p>You need to select a widget to display data. Basically people select logo here.</p>
+									</aside>
+								<?php endif; // end sidebar widget area ?>
 							</div>
 							<nav class="footer-widget-2">
 								<h3>Important Links</h3>
@@ -41,17 +46,11 @@
 								?>
 							</nav>
 							<div class="footer-widget-3">
-								<!--  FIRST WAY SHOW DYNAMIC SIDEBAR -->
-								<?php if ( !dynamic_sidebar( 'footer_widget_three' ) ) : ?>
+								<!--  THE WAY SHOW DYNAMIC SIDEBAR -->
+								<?php if ( !dynamic_sidebar( 'footer_widget_two' ) ) : ?>
 									<aside id="search" class="widget">
-											<?php get_search_form(); ?>
+										<p>You need to select a widget to display data.</p>
 									</aside>
-									<aside id="archives" class="widgets">
-										<h3 class="widget-title">Archives</h3>
-										<ul>
-											<?php wp_get_archives('type=monthly&limit=12'); ?>
-										</ul>
-									</aside>    
 								<?php endif; // end sidebar widget area ?>
 							</div>
 						</div>

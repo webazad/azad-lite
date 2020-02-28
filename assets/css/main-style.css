@@ -279,7 +279,6 @@ html body input:focus, html body input:hover {
 }
 
 .azad-header {
-  border-top: 0.001rem solid var(--border-top);
   background: var(--white);
   -webkit-box-shadow: var(--shadow);
   -ms-box-shadow: var(--shadow);
@@ -352,28 +351,6 @@ html body input:focus, html body input:hover {
   padding: 2rem 1rem;
   display: block;
   text-decoration: none;
-  position: relative;
-}
-
-.azad-header .header-container .azad-nav .desktop-menus ul li a:after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  right: 0;
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
-  -webkit-transition: all .4s;
-  transition: all .4s;
-  -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
-          transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
-  background: var(--text);
-  height: 0;
-}
-
-.azad-header .header-container .azad-nav .desktop-menus ul li a:hover:after {
-  height: 100%;
-  background: rgba(0, 186, 186, 0.1) !important;
 }
 
 .azad-header .header-container .azad-nav .azad-search-button {

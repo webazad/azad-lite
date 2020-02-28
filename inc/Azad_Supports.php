@@ -67,12 +67,15 @@ if ( ! class_exists( 'Azad_Supports' ) ):
             // 4.. MULTIPLE MENU REGISTER SYSTEM
             if(function_exists('register_nav_menus')){
                 register_nav_menus(array(
-                    'header_menu_one'   => __('Header Menu One', 'azad-lite'),
-                    'sidebar_menu_one' => __('Sidebar Menu One', 'azad-lite'),
-                    'footer_menu_one'  => __('Footer Menu One', 'azad-lite'),
-                    'footer_menu_two'  => __('Footer Menu Two', 'azad-lite'),
-                    'footer_menu_three'=> __('Footer Menu Three', 'azad-lite'),
-                    'footer_menu_four' => __('Footer Menu Four', 'azad-lite')
+                    'header_main_menu'   => __('Header Main Menu', AZAD_LITE_TEXTDOMAIN),
+                    'header_stick_menu' => __('Header Stick Menu', AZAD_LITE_TEXTDOMAIN),
+                    'responsive_mobile_menu'  => __('Responsive Mobile Menu', AZAD_LITE_TEXTDOMAIN),
+                    'responsive_slider_menu'  => __('Responsive Slider Menu', AZAD_LITE_TEXTDOMAIN),
+                    'footer_menu'=> __('Footer Menu', AZAD_LITE_TEXTDOMAIN),
+                    'left_sidebar_menu'=> __('Left Sidebar Menu', AZAD_LITE_TEXTDOMAIN),
+                    'right_sidebar_menu'=> __('Right Sidebar Menu', AZAD_LITE_TEXTDOMAIN),
+                    'search_page_menu'=> __('Search Page Menu', AZAD_LITE_TEXTDOMAIN),
+                    'no_page_menu'=> __('404 Page Menu', AZAD_LITE_TEXTDOMAIN)
                 ));
             } 
         }

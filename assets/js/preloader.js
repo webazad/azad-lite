@@ -7,12 +7,13 @@
     // PRELOADER
         loader()
         function loader(_success) {
-            var obj = document.querySelector('.preloader'),
-            inner = document.querySelector('.inner .percentage'),
-            page = document.querySelector('body');
-            obj.classList.remove('page-loaded');
-            page.classList.add('page-loaded');
-            var w = 0,
+            if(document.querySelector('.preloader')){
+                var obj = document.querySelector('.preloader'),
+                inner = document.querySelector('.inner .percentage'),
+                page = document.querySelector('body');
+                obj.classList.remove('page-loaded');
+                page.classList.add('page-loaded');
+                var w = 0,
                 t = setInterval(function() {
                     w = w + 1;
                     inner.textContent = w;
@@ -26,8 +27,8 @@
                         }
                     }
                 }, 20);
-        }  
-        
+            }
+        }        
     })
 })(jQuery);
 
