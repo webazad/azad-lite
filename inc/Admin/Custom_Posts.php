@@ -4,21 +4,27 @@ namespace Inc\Admin;
 // EXIT IF ACCESSED DIRECTLY
 defined( 'ABSPATH' ) || exit;
 
-if ( ! class_exists( 'Custom_Posts' ) ):
+if ( ! class_exists( 'Custom_Posts' ) ) :
+
     class Custom_Posts {
+
         private static $_instance;
+        
         public function __construct() {
             add_action( 'init', array( $this, 'azad_custom_posts' ) );
             add_action( 'after_switch_theme', array( $this, 'azad_rewrite_flush' ) );
         }
+
         public function azad_rewrite_flush() {
             //$$this->azad_custom_posts();
             flush_rewrite_rules();
         }
+
         public function custom_posts() {
             $c_posts = array( 'book', 'student', 'Driver' );
             return $c_posts;
         }
+
         public function azad_custom_posts() {
             $c_posts = $this->custom_posts();
             foreach ( $c_posts as $c_post ) {
@@ -63,15 +69,18 @@ if ( ! class_exists( 'Custom_Posts' ) ):
             }
             
         }
+
         public static function register() {
             // echo 'Azad asdf';   
         }
+
         public static function get_instance() {
             if ( is_null( self::$_instance ) && ! isset( self::$_instance ) && ! ( self::$_instance instanceof self ) ) {
                 self::$_instance = new self();            
             }
             return self::$_instance;
         }
+
         public function __destruct() {}
      }
 

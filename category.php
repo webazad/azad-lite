@@ -6,6 +6,7 @@
 *-------------------------------------------------------------------------------------------------
  */
 get_header(); ?>
+
 <!-- SPECIAL SECTION BEGINS -->
 <section class="azad-blog">	
 	<div class="azad-container">
@@ -21,7 +22,7 @@ get_header(); ?>
 				if ( ! empty( $category_description ) ) {
 					echo '<div class="archive-meta">' . $category_description . '</div>';
 				}				
-				get_template_part('loop','category'); 
+				get_template_part( 'loop', 'category' ); 
 				get_sidebar();
 				
 			?>

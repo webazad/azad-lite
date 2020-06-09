@@ -5,17 +5,20 @@
 * :: @version 1.0.0
 *--------------------------------------------------------------------------------
 */
-namespace Inc;
+namespace Azad_Lite;
 
 // EXIT IF ACCESSED DIRECTLY
 defined( 'ABSPATH' ) || exit;
 
-if ( ! class_exists( 'Azad_Supports' ) ):
+if ( ! class_exists( 'Azad_Supports' ) ) :
+
     class Azad_Supports {
         public static $_instance = null;
+
         public function __construct() {
             add_action( 'after_setup_theme', array( $this, 'azad_supports' ) );
         }
+
         public function azad_supports() { 
             //  1.. TO SHOW TITLE TAG
             if ( function_exists( 'add_theme_support' ) ) {
@@ -80,13 +83,16 @@ if ( ! class_exists( 'Azad_Supports' ) ):
                 ) );
             } 
         }
+
         public static function get_instance() {
             if ( is_null( self::$_instance ) && ! isset( self::$_instance ) && ! ( self::$_instance instanceof self ) ) {
                 self::$_instance = new self();            
             }
             return self::$_instance;
         }
+
         public function __destruct() {}
+        
     }
 
 endif;

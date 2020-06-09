@@ -8,23 +8,19 @@
 ?>
 <!DOCTYPE html>
 <html class="no-js" <?php language_attributes(); ?>>
+
     <head>
         <meta charset="<?php bloginfo( 'charset' ); ?>">
         <!-- device code -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-	<?php wp_head(); ?>
+	    <?php wp_head(); ?>
     </head>
-    <?php
-    	if ( is_front_page() ) :
-            $custom_classes = array( 'yes_class_1', 'yes_class_2' );
-        else:
-            $custom_classes = array( 'no_class_1', 'no_class_2' );
-        endif;
-    ?>
-    <body <?php body_class( $custom_classes ); ?>>
+
+    <body <?php body_class(); ?>>
+    
         <?php        
             // Check whether the preloader is activated in the customizer.
-            $enable_preloader = get_theme_mod( 'preloader_settings', true );	
+            $enable_preloader = get_theme_mod( 'preloader_settings', false );	
             
             if ( $enable_preloader ) : ?>
             <!-- PRELOADER BEGINS -->
@@ -38,7 +34,7 @@
         <?php endif; ?>
 
         <!-- BIG WRAPPER BEGINS -->
-        <div class="big-wrapper">
+        <main class="big-wrapper">
             <!-- HEADER SECTION BEGINS -->
             <header class="azad-header">
                 <?php //get_template_part('template-parts/header-top.php'); ?>
@@ -46,15 +42,7 @@
                 <div class="azad-container">
                     <div class="header-container">
                         <div class="logo">
-                            <h1>
-                                <?php
-                                    if( has_custom_logo() ){
-                                        the_custom_logo();                             
-                                    }else{ ?>
-                                        <a href="<?php echo site_url(); ?>"><?php bloginfo( 'name' ); ?></a>
-                                    <?php }
-                                ?>
-                            </h1>
+                            <hgroup><?php azad_site_logo(); ?></hgroup>
                             <div id="hamburger-menu" class="burger-button"><span></span></div>
                         </div>
                         <div class="azad-nav">
@@ -89,7 +77,7 @@
                             <?php
 								// Check whether the header search is activated in the customizer.
 								$enable_header_search = get_theme_mod( 'enable_header_search', true );								
-								if($enable_header_search) : ?>
+								if( $enable_header_search ) : ?>
                                 <!-- asdf -->
                                 <div class="azad-search-button">
                                     <div class="header-toggles hide-no-js">

@@ -6,6 +6,7 @@
 *-------------------------------------------------------------------------------------------------
  */
 get_header(); ?>
+
 <!-- SPECIAL SECTION BEGINS -->
 <section class="azad-blog">	
 	<div class="azad-container">

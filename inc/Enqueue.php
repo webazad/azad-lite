@@ -1,15 +1,18 @@
 <?php
-namespace Inc;
+namespace Azad_Lite;
 
 // EXIT IF ACCESSED DIRECTLY
 defined( 'ABSPATH' ) || exit;
 
-if ( ! class_exists( 'Enqueue' ) ):
+if ( ! class_exists( 'Enqueue' ) ) :
+
     class Enqueue{
         private static $_instance;
+
         public function __construct() {
             add_action( 'wp_enqueue_scripts', array( $this, 'azad_enqueue_scripts' ) );
         }
+
         public function azad_enqueue_scripts() {
 
             wp_register_style( 'main', trailingslashit( get_template_directory_uri() ) . 'assets/css/main-style.css', array(), wp_get_theme( 'azad-lite')->get( 'Version' ), 'all' );
@@ -31,7 +34,9 @@ if ( ! class_exists( 'Enqueue' ) ):
             }
             return self::$_instance;
         }
+
         public function __destruct() {}
+        
      }
 
 endif;

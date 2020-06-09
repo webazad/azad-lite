@@ -6,23 +6,27 @@
 * :: TO REGISTER WIDGETS IN SIDEBARS OR IN FOOTER OR ANYWHERE IN THE PAGE 
 *-----------------------------------------------------------------------------
 */
-namespace Inc\Admin;
+namespace Azad_Lite\Admin;
 
 // EXIT IF ACCESSED DIRECTLY
 defined( 'ABSPATH' ) || exit;
 
-if ( ! class_exists( 'Azad_Customizer' ) ):
-    class Azad_Customizer{
+if ( ! class_exists( 'Azad_Customizer' ) ) :
+
+    class Azad_Customizer {
+
         private static $_instance;
         public function __construct() {
 			add_action( 'customize_register', array( $this, 'register_customize_azad' ) );
         }
+
         public function register_customize_azad( $wp_customize ) {
             $this->azad_add_panels( $wp_customize );        
             $this->azad_add_sections( $wp_customize );        
             $this->azad_add_settings( $wp_customize );        
             $this->azad_add_controls( $wp_customize );         
         }
+
         public function azad_add_panels( $wp_customize ) {
             // GLOBAL PANEL
             $wp_customize->add_panel( 'global_panel', array(
@@ -46,6 +50,7 @@ if ( ! class_exists( 'Azad_Customizer' ) ):
                 'capability'        => 'edit_theme_options'
             ) );
         }
+
         public function azad_add_sections( $wp_customize ) {
             // PRELOADER SECTION
             $wp_customize->add_section( 'preloader_section', array(
@@ -96,6 +101,7 @@ if ( ! class_exists( 'Azad_Customizer' ) ):
                 'capability'        => 'edit_theme_options'
             ) );
         }
+
         public function azad_add_settings( $wp_customize ) {
             // PRELOADER SETTING
             $wp_customize->add_setting( 'preloader_settings', array(
@@ -130,6 +136,7 @@ if ( ! class_exists( 'Azad_Customizer' ) ):
                 'transport'         => 'refresh',
             ) );
         }
+
         public function azad_add_controls( $wp_customize ) {    
             // GLOBAL CONTROLS        
             $wp_customize->add_control( new \WP_Customize_Control( $wp_customize, 'enable_preloader', array(
@@ -229,12 +236,14 @@ if ( ! class_exists( 'Azad_Customizer' ) ):
                 'settings'          => 'copyright_color',    
             ) ) );
         }
+
         public static function get_instance() {
             if ( is_null( self::$_instance ) && ! isset( self::$_instance ) && ! ( self::$_instance instanceof self ) ) {
                 self::$_instance = new self();            
             }
             return self::$_instance;
         }
+
         public function __destruct() {}
     }
 

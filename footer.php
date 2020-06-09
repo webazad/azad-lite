@@ -1,9 +1,9 @@
 <?php
 /**
-*-------------------------------------------------------------------------------------------------
+*------------------------------------------------
 * :: @package azad-lite
 * :: @version 1.0.0
-*-------------------------------------------------------------------------------------------------
+*------------------------------------------------
  */
 ?>
             <!-- FOOTER SECTION BEGINS -->
@@ -64,7 +64,7 @@
 					</div>
                 </div>
             </footer><!-- ends footer -->
-        </div><!-- ends big wrapper -->
+        </main><!-- ends big wrapper -->
 		<!-- CLICK AUDIO -->
         <audio id="hamburger-hover" src="<?php echo get_template_directory_uri(); ?>/assets/audio/link.mp3" preload="auto"></audio>
         <!-- TO MAKE THE PLUGINS DO WORK -->

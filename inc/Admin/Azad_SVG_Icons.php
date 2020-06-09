@@ -5,14 +5,18 @@
 * :: @version 1.0.0
 *-----------------------------------------------------------------------------
 */
-namespace Inc\Admin;
+namespace Azad_Lite\Admin;
+
 // EXIT IF ACCESSED DIRECTLY
 defined( 'ABSPATH' ) || exit;
 
-if ( ! class_exists( 'Azad_SVG_Icons' ) ):
+if ( ! class_exists( 'Azad_SVG_Icons' ) ) :
+
     class Azad_SVG_Icons {
+
         public static $_instance = null;
-        public function __construct() {}
+		public function __construct() {}
+		
         public static function get_svg( $icon, $group = 'ui', $color = '#1A1A1B' ) {
 			if ( 'ui' === $group ) {
 				$arr = self::$ui_icons;

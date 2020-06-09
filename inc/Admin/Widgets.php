@@ -6,18 +6,21 @@
 * :: TO REGISTER WIDGETS IN SIDEBARS OR IN FOOTER OR ANYWHERE IN THE PAGE 
 *--------------------------------------------------------------------------------
 */
-namespace Inc\Admin;
+namespace Azad_Lite\Admin;
 
 // EXIT IF ACCESSED DIRECTLY
 defined( 'ABSPATH' ) || exit;
 
-if ( ! class_exists( 'Widgets' ) ):
-    class Widgets{
+if ( ! class_exists( 'Widgets' ) ) :
+
+    class Widgets {
         public static $_instance = null;
+
         public function __construct() {
             add_action( 'widgets_init', array( $this, 'azad_register_widget' ) );
             add_action( 'widgets_init', array( $this, 'azad_register_widgets' ) );
         }
+
         public function azad_register_widgets() {
             $widgets = array(
                 array(
@@ -56,10 +59,12 @@ if ( ! class_exists( 'Widgets' ) ):
                     'description'=>'Widget for footer four'
                 )
             );
-            foreach($widgets as $widget) {
+
+            foreach( $widgets as $widget ) {
                 $this->get_azad_register_widgets( $widget['name'], $widget['id'], $widget['description'] );    
             }            
         }
+
         public static function get_azad_register_widgets( $name, $id, $description ) {
             if ( function_exists( 'register_sidebar' ) ) {
                 register_sidebar( array(
@@ -73,6 +78,7 @@ if ( ! class_exists( 'Widgets' ) ):
                 ));
             }
         }
+
         public static function azad_register_widget() {
             if ( function_exists( 'register_sidebar' ) ) {
                 register_sidebar( array(
@@ -86,12 +92,14 @@ if ( ! class_exists( 'Widgets' ) ):
                 ));
             }
         }
+
         public static function get_instance() {
             if ( is_null( self::$_instance ) && ! isset( self::$_instance ) && ! ( self::$_instance instanceof self ) ) {
                 self::$_instance = new self();            
             }
             return self::$_instance;
         }
+
         public function __destruct() {}
     }
 

@@ -6,6 +6,7 @@
 *-------------------------------------------------------------------------------------------------
  */
 get_header(); ?>
+
 <!-- SPECIAL SECTION BEGINS -->
 <section class="azad-blog">	
 	<div class="azad-container">
@@ -17,5 +18,4 @@ get_header(); ?>
 		</div>
 	</div>
 </section><!-- ends special section -->
-<?php get_footer(); ?>
-
+<?php get_footer();

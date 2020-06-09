@@ -6,6 +6,7 @@
 *-------------------------------------------------------------------------------------------------
  */
 get_header(); ?>
+
 <!-- SPECIAL SECTION BEGINS -->
 <section class="azad-blog">	
 	<div class="azad-container">
@@ -33,7 +34,7 @@ get_header(); ?>
 			<?php endif; ?>
 			<?php
 				rewind_posts();		
-				get_template_part('loop','author'); 
+				get_template_part( 'loop', 'author' ); 
 				get_sidebar();
 			?>
 		</div>

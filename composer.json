@@ -12,6 +12,7 @@
     "minimum-stability": "dev",
     "require": {},
     "autoload":{
-        "psr-4":{"Inc\\":"./inc"}
+        "psr-4":{"Azad_Lite\\":"./inc"},
+		"files": [ "inc/functions.php" ]
     }
 }
