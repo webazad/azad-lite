@@ -2,29 +2,30 @@
 namespace Inc\Admin;
 
 // EXIT IF ACCESSED DIRECTLY
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
+
 if ( ! class_exists( 'Custom_Posts' ) ):
-    class Custom_Posts{
+    class Custom_Posts {
         private static $_instance;
         public function __construct() {
-            add_action('init',array($this,'azad_custom_posts'));
-            add_action('after_switch_theme',array($this,'azad_rewrite_flush'));
+            add_action( 'init', array( $this, 'azad_custom_posts' ) );
+            add_action( 'after_switch_theme', array( $this, 'azad_rewrite_flush' ) );
         }
         public function azad_rewrite_flush() {
             //$$this->azad_custom_posts();
             flush_rewrite_rules();
         }
         public function custom_posts() {
-            $c_posts = array('book','student','Driver');
+            $c_posts = array( 'book', 'student', 'Driver' );
             return $c_posts;
         }
         public function azad_custom_posts() {
             $c_posts = $this->custom_posts();
-            foreach($c_posts as $c_post){
-                $singular_lc = apply_filters('azad_custom_post',$c_post);
-                $singular_uc = ucwords($singular_lc);
+            foreach ( $c_posts as $c_post ) {
+                $singular_lc = apply_filters( 'azad_custom_post', $c_post );
+                $singular_uc = ucwords( $singular_lc );
                 $plural_lc = $singular_lc . 's';
-                $plural_uc = ucwords($plural_lc);
+                $plural_uc = ucwords( $plural_lc );
                 $azad = 'azad';
                 $labels = array(
                     'name'               => _x( $plural_uc, 'post type general name', $azad ),
@@ -58,25 +59,26 @@ if ( ! class_exists( 'Custom_Posts' ) ):
 					'show_in_rest' => true,
                     'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' )
                 );
-                register_post_type($singular_lc, $args);
+                register_post_type( $singular_lc, $args );
             }
             
         }
         public static function register() {
             // echo 'Azad asdf';   
         }
-        public static function get_instance(){
-            if(is_null(self::$_instance) && ! isset(self::$_instance) && ! (self::$_instance instanceof self)){
+        public static function get_instance() {
+            if ( is_null( self::$_instance ) && ! isset( self::$_instance ) && ! ( self::$_instance instanceof self ) ) {
                 self::$_instance = new self();            
             }
             return self::$_instance;
         }
         public function __destruct() {}
      }
+
 endif;
 
-if(! function_exists('load_azad_custom_posts')){
-    function load_azad_custom_posts(){
+if ( ! function_exists( 'load_azad_custom_posts' ) ) {
+    function load_azad_custom_posts() {
         return Custom_Posts::get_instance();
     }
 }

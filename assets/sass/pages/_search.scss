@@ -1,14 +1,14 @@
-.azad-search{
-    background:var(--text);
+.azad-search {
+    background: var( --text );
     padding: 5rem 0;
 
-    .azad-content{
-        background:var(--white);
-        margin-top:1rem;
-        text-align:left;
-        padding:1rem;
+    .azad-content {
+        background: var( --white );
+        margin-top: 1rem;
+        text-align: left;
+        padding: 1rem;
     }
-    .azad-content:first-child{
+    .azad-content:first-child {
         margin-top: 0;
     }
 }

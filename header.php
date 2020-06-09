@@ -15,18 +15,18 @@
 	<?php wp_head(); ?>
     </head>
     <?php
-    	if(is_front_page()):
-            $custom_classes = array('yes_class_1','yes_class_2');
+    	if ( is_front_page() ) :
+            $custom_classes = array( 'yes_class_1', 'yes_class_2' );
         else:
-            $custom_classes = array('no_class_1','no_class_2');
+            $custom_classes = array( 'no_class_1', 'no_class_2' );
         endif;
     ?>
-    <body <?php body_class($custom_classes); ?>>
+    <body <?php body_class( $custom_classes ); ?>>
         <?php        
             // Check whether the preloader is activated in the customizer.
             $enable_preloader = get_theme_mod( 'preloader_settings', true );	
             
-            if($enable_preloader) : ?>
+            if ( $enable_preloader ) : ?>
             <!-- PRELOADER BEGINS -->
             <div class="preloader">
                 <div class="inner">
@@ -48,10 +48,10 @@
                         <div class="logo">
                             <h1>
                                 <?php
-                                    if(has_custom_logo()){
+                                    if( has_custom_logo() ){
                                         the_custom_logo();                             
                                     }else{ ?>
-                                        <a href="<?php echo site_url(); ?>"><?php bloginfo('name'); ?></a>
+                                        <a href="<?php echo site_url(); ?>"><?php bloginfo( 'name' ); ?></a>
                                     <?php }
                                 ?>
                             </h1>
@@ -61,7 +61,7 @@
                             <nav class="desktop-menus">
                                 <!-- SECOND WAY TO SHOW NAVIGATION -->
                                 <?php 
-                                    if(function_exists('wp_nav_menu')){
+                                    if ( function_exists( 'wp_nav_menu' ) ) {
                                         $defaults = array(
                                             'theme_location'  => 'header_main_menu',
                                             'menu'            => '',
@@ -80,8 +80,8 @@
                                             'depth'           => 0,
                                             'walker'          => ''
                                         );
-                                        wp_nav_menu($defaults);
-                                    }elseif(has_nav_menu('sidebar_widget_one')){
+                                        wp_nav_menu( $defaults );
+                                    } elseif ( has_nav_menu( 'sidebar_widget_one' ) ) {
                                         echo "Pleas set the menu first";
                                     }
                                 ?>
@@ -110,7 +110,7 @@
                 <nav class="mobile-menus">
                     <!-- SECOND WAY TO SHOW NAVIGATION -->
                     <?php 
-                        if(function_exists('wp_nav_menu')){
+                        if ( function_exists( 'wp_nav_menu' ) ) {
                             $defaults = array(
                                 'theme_location'  => 'header_menu_one',
                                 'menu'            => '',
@@ -129,8 +129,8 @@
                                 'depth'           => 0,
                                 'walker'          => ''
                             );
-                            wp_nav_menu($defaults);
-                        }elseif(has_nav_menu('sidebar_widget_one')){
+                            wp_nav_menu( $defaults );
+                        } elseif ( has_nav_menu( 'sidebar_widget_one' ) ) {
                             echo "Pleas set the menu first";
                         }
                     ?>
@@ -142,3 +142,6 @@
 					}
 				?>
             </header><!-- ends header section -->
+            <?php
+                // Output the menu modal.
+                get_template_part( 'template-parts/modal-menu' );

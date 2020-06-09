@@ -1,13 +1,13 @@
-.azad-blog{
-    background: var(--text);
-    padding:5rem 0;
-    .azad-content{
-        background:var(--white);
+.azad-blog {
+    background: var( --text );
+    padding: 5rem 0;
+    .azad-content {
+        background: var( --white );
         margin-top: 1rem;
         padding: 1rem;
         text-align: left;
     }
-    .azad-content:first-child{
+    .azad-content:first-child {
         margin-top: 0;
     }
 }

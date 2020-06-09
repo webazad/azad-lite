@@ -64,7 +64,6 @@ html body {
 html body .azad-container {
   width: var(--width);
   margin: 0 auto;
-  overflow: overlay;
 }
 
 html body .azad-section {
@@ -296,6 +295,7 @@ html body input:focus, html body input:hover {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  padding: 1rem 0;
 }
 
 .azad-header .header-container .logo {
@@ -326,10 +326,9 @@ html body input:focus, html body input:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-.azad-header .header-container .azad-nav .desktop-menus {
-  height: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .azad-header .header-container .azad-nav .desktop-menus ul {
@@ -339,18 +338,157 @@ html body input:focus, html body input:hover {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  height: 100%;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+}
+
+.azad-header .header-container .azad-nav .desktop-menus ul li {
+  margin-left: 2.5rem;
+  position: relative;
 }
 
 .azad-header .header-container .azad-nav .desktop-menus ul li a {
-  color: var(--text);
+  color: #cd2653;
   display: block;
-  padding: 2rem 1rem;
+  padding-right: 1rem;
+  position: relative;
+  font-size: 1.5rem;
+}
+
+.azad-header .header-container .azad-nav .desktop-menus ul li a:hover {
+  text-decoration: underline;
+}
+
+.azad-header .header-container .azad-nav .desktop-menus ul li .icon {
+  color: #cd2653;
   display: block;
-  text-decoration: none;
+  height: 0.5rem;
+  position: absolute;
+  width: 1rem;
+  pointer-events: none;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  right: -0.5rem;
+  top: calc(50% - 0.4rem);
+}
+
+.azad-header .header-container .azad-nav .desktop-menus ul li .icon:before, .azad-header .header-container .azad-nav .desktop-menus ul li .icon:after {
+  content: "";
+  display: block;
+  background-color: currentColor;
+  position: absolute;
+  bottom: calc(50% - 0.1rem);
+  left: 0;
+}
+
+.azad-header .header-container .azad-nav .desktop-menus ul li .icon:before {
+  height: 0.5rem;
+  width: 0.1rem;
+}
+
+.azad-header .header-container .azad-nav .desktop-menus ul li .icon:after {
+  height: 0.1rem;
+  width: 0.5rem;
+}
+
+.azad-header .header-container .azad-nav .desktop-menus ul li ul {
+  border-radius: 0.4rem;
+  color: #fff;
+  font-size: 1.7rem;
+  opacity: 0;
+  padding: 1rem 0;
+  position: absolute;
+  right: 9999rem;
+  top: calc(100% + 2rem);
+  -webkit-transition: opacity 0.15s linear, right 0s 0.15s, -webkit-transform 0.15s linear;
+  transition: opacity 0.15s linear, right 0s 0.15s, -webkit-transform 0.15s linear;
+  transition: opacity 0.15s linear, transform 0.15s linear, right 0s 0.15s;
+  transition: opacity 0.15s linear, transform 0.15s linear, right 0s 0.15s, -webkit-transform 0.15s linear;
+  -webkit-transform: translateY(0.6rem);
+          transform: translateY(0.6rem);
+  width: 13rem;
+  z-index: 1;
+  background: var(--black);
+  text-align: left;
+  display: initial;
+}
+
+.azad-header .header-container .azad-nav .desktop-menus ul li ul li {
+  margin-left: 0;
+}
+
+.azad-header .header-container .azad-nav .desktop-menus ul li ul li a {
+  display: block;
+  padding: .5rem;
+  color: #ffffff;
+  text-align: left;
+  text-decoration: none !important;
+}
+
+.azad-header .header-container .azad-nav .desktop-menus ul li ul li a:hover {
+  text-decoration: underline !important;
+}
+
+.azad-header .header-container .azad-nav .desktop-menus ul li ul li:hover > ul {
+  right: calc(100% + 1.5rem);
+}
+
+.azad-header .header-container .azad-nav .desktop-menus ul li ul li .icon {
+  right: 1rem;
+  color: var(--white);
+}
+
+.azad-header .header-container .azad-nav .desktop-menus ul li ul li ul {
+  top: -1rem;
+}
+
+.azad-header .header-container .azad-nav .desktop-menus ul li ul li ul:before {
+  top: 0;
+  height: auto;
+  width: 1.5rem;
+  left: auto;
+  right: -1.5rem;
+  bottom: 0;
+}
+
+.azad-header .header-container .azad-nav .desktop-menus ul li ul li ul:after {
+  border-bottom-color: transparent;
+  border-left-color: #000000;
+  top: 1.5rem;
+  right: -1.2rem;
+  bottom: auto;
+}
+
+.azad-header .header-container .azad-nav .desktop-menus ul li ul:before, .azad-header .header-container .azad-nav .desktop-menus ul li ul:after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 100%;
+}
+
+.azad-header .header-container .azad-nav .desktop-menus ul li ul:before {
+  height: 2rem;
+  left: 0;
+  right: 0;
+}
+
+.azad-header .header-container .azad-nav .desktop-menus ul li ul:after {
+  border: 0.6rem solid transparent;
+  border-bottom-color: #000;
+  right: 1.8rem;
+}
+
+.azad-header .header-container .azad-nav .desktop-menus ul li:hover > ul {
+  right: 0;
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition: opacity 0.15s linear, -webkit-transform 0.15s linear;
+  transition: opacity 0.15s linear, -webkit-transform 0.15s linear;
+  transition: opacity 0.15s linear, transform 0.15s linear;
+  transition: opacity 0.15s linear, transform 0.15s linear, -webkit-transform 0.15s linear;
+}
+
+.azad-header .header-container .azad-nav .desktop-menus ul .current-menu-item > a {
+  text-decoration: underline !important;
 }
 
 .azad-header .header-container .azad-nav .azad-search-button {
@@ -360,16 +498,29 @@ html body input:focus, html body input:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-left: 1.5rem;
 }
 
-.azad-header .header-container .azad-nav .azad-search-button .toggle {
+.azad-header .header-container .azad-nav .azad-search-button .toggle-wrapper {
+  line-height: 0;
+}
+
+.azad-header .header-container .azad-nav .azad-search-button .toggle-wrapper .toggle {
   border: none;
   background: none;
-  padding: 1rem;
   cursor: pointer;
 }
 
-.azad-header .header-container .azad-nav .azad-search-button .toggle:focus {
+.azad-header .header-container .azad-nav .azad-search-button .toggle-wrapper .toggle .toggle-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.azad-header .header-container .azad-nav .azad-search-button .toggle-wrapper .toggle:focus {
   outline: none;
 }
 

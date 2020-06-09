@@ -1,54 +1,107 @@
 /**
-*-----------------------------------------------------------------------------------------------------------------------------
+*-------------------------------------------------------
 *   = GLOBAL STYLE
-*-----------------------------------------------------------------------------------------------------------------------------
+*-------------------------------------------------------
 */
-:root{
-    --ff:verdana;
-    --width:85vw;
-    --padding-top:5rem;
-    --paddin-bottom:5rem;
+:root {
+    --ff: verdana;
+    --width: 85vw;
+    --padding-top: 5rem;
+    --paddin-bottom: 5rem;
 }
 html {
-    background: var(--bg-color); 
+    background: var( --bg-color ); 
 
     body { 
         font: 1em/1.25em "Cabin", Helvetica, Arial, sans-serif; 
-        color: var(--text-color); 
+        color: var( --text-color ); 
         text-align: center;
 
-        .azad-container{
-            width:var(--width);
-            margin:0 auto;
-            overflow: overlay;
+        .azad-container {
+            width: var( --width );
+            margin: 0 auto;
         }
-        .azad-section{
-            padding:var(--padding-top) 0;
+        .azad-section {
+            padding: var( --padding-top ) 0;
         }
 
-        h1 { font: 2rem/1.5rem "Cabin", Helvetica, Arial, sans-serif; }
-        h2, h3 { font: 21px/1.5em "Cabin", Helvetica, Arial, sans-serif; }
-        h4 { font: 16px/1.5em "Cabin", Helvetica, Arial, sans-serif; }
-        h5 { font: 14px/1.5em "Cabin", Helvetica, Arial, sans-serif; }
-        h6 { font: 12px/1.5em "Cabin", Helvetica, Arial, sans-serif; }
-        a { text-decoration: none; }
-        a:link { color: var(--text-color); text-decoration: none; }
-        a:hover, a:focus, a:active, a:visited { color: var(--border-top-color); text-decoration: underline; }
-        p { margin-bottom: 1em; }
-        strong { font-weight: bold; }
-        em { font-style: italic; }
-        ol, ul { list-style: none;}
-        blockquote { border: 0; font: italic 21px/1.5em "Gentium Basic", Georgia, serif; color: #2894d8; }
-        blockquote cite { display: block; margin-top: 42px; font-size: 16px; font-style: normal; }
-        hr { border: none; height: 1px; background-color: #ededed; margin: 3em 0; }
-        input { background: #696969; border: 1px solid #c3c3c3; color: #cbcbcb; padding: 3px; }
-        input:focus, input:hover { background: #ededed; color: #4e4e4e; }
+        h1 {
+            font: 2rem/1.5rem "Cabin", Helvetica, Arial, sans-serif;
+        }
+        h2,
+        h3 {
+            font: 21px/1.5em "Cabin", Helvetica, Arial, sans-serif;
+        }
+        h4 {
+            font: 16px/1.5em "Cabin", Helvetica, Arial, sans-serif;
+        }
+        h5 {
+            font: 14px/1.5em "Cabin", Helvetica, Arial, sans-serif;
+        }
+        h6 {
+            font: 12px/1.5em "Cabin", Helvetica, Arial, sans-serif;
+        }
+        a {
+            text-decoration: none;
+        }
+        a:link {
+            color: var( --text-color );
+            text-decoration: none;
+        }
+        a:hover,
+        a:focus,
+        a:active,
+        a:visited {
+            color: var( --border-top-color );
+            text-decoration: underline;
+        }
+        p {
+            margin-bottom: 1em;
+        }
+        strong {
+            font-weight: bold;
+        }
+        em {
+            font-style: italic;
+        }
+        ol,
+        ul {
+            list-style: none;
+        }
+        blockquote {
+            border: 0;
+            font: italic 21px/1.5em "Gentium Basic", Georgia, serif;
+            color: #2894d8;
+        }
+        blockquote cite {
+            display: block;
+            margin-top: 42px;
+            font-size: 16px;
+            font-style: normal;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background-color: #ededed;
+            margin: 3em 0;
+        }
+        input {
+            background: #696969;
+            border: 1px solid #c3c3c3;
+            color: #cbcbcb;
+            padding: 3px;
+        }
+        input:focus,
+        input: hover {
+            background: #ededed;
+            color: #4e4e4e;
+        }
     }
 }
 
-@media only screen and (max-width: 767px) {
-    .azad-section{
-        padding:3rem 0;
+@media only screen and ( max-width: 767px ),
+only screen and ( max-device-width: 767px ) {
+    .azad-section {
+        padding: 3rem 0;
     }
 }
-

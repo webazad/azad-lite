@@ -1,9 +1,9 @@
 <?php
 /**
-*-------------------------------------------------------------------------------------------------
+*--------------------------------------------------
 * :: @package azad-lite
 * :: @version 1.0.0
-*-------------------------------------------------------------------------------------------------
+*--------------------------------------------------
  */
  
 get_header(); ?>
@@ -13,11 +13,10 @@ get_header(); ?>
 	<div class="azad-container">
 		<div class="blog-container">
 			<?php 
-				get_template_part('loop','page');
+				get_template_part( 'loop', 'page' );
 				get_sidebar();
 			?>
 		</div>
 	</div>
 </section><!-- ends special section -->
-<?php get_footer(); ?>
-
+<?php get_footer();

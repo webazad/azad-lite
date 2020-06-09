@@ -1,6 +1,6 @@
 <div class="the_article">
-	<?php if(have_posts()) : ?>
-		<?php while(have_posts()) : the_post(); ?>
+	<?php if ( have_posts() ) : ?>
+		<?php while ( have_posts() ) : the_post(); ?>
 			<article class="">
 				<div class="azad-thumb">
 					<?php the_post_thumbnail(); ?>

@@ -12,10 +12,9 @@ get_header(); ?>
 <section class="azad-blog">	
 	<div class="azad-container">
 		<div class="blog-container">
-			<?php get_template_part('loop','single'); ?>
+			<?php get_template_part( 'loop', 'single' ); ?>
 			<?php get_sidebar(); ?>
 		</div>
 	</div>
 </section><!-- ends special section -->
-<?php get_footer(); ?>
-
+<?php get_footer();

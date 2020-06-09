@@ -13,7 +13,7 @@
 						<div class="footer-container">
 							<div class="footer-widget-1">
 								<!--  THE WAY SHOW DYNAMIC SIDEBAR -->
-								<?php if ( !dynamic_sidebar( 'footer_widget_one' ) ) : ?>
+								<?php if ( ! dynamic_sidebar( 'footer_widget_one' ) ) : ?>
 									<aside id="search" class="widget">
 										<p>You need to select a widget to display data. Basically people select logo here.</p>
 									</aside>
@@ -22,7 +22,7 @@
 							<nav class="footer-widget-2">
 								<h3>Important Links</h3>
 								<?php
-									if(function_exists('wp_nav_menu')){
+									if ( function_exists( 'wp_nav_menu' ) ) {
 										$defaults = array(
 											'theme_location'  => 'footer_menu_one',
 											'menu'            => '',
@@ -41,13 +41,13 @@
 											'depth'           => 0,
 											'walker'          => ''
 										);
-										wp_nav_menu($defaults);
+										wp_nav_menu( $defaults );
 									}
 								?>
 							</nav>
 							<div class="footer-widget-3">
 								<!--  THE WAY SHOW DYNAMIC SIDEBAR -->
-								<?php if ( !dynamic_sidebar( 'footer_widget_two' ) ) : ?>
+								<?php if ( ! dynamic_sidebar( 'footer_widget_two' ) ) : ?>
 									<aside id="search" class="widget">
 										<p>You need to select a widget to display data.</p>
 									</aside>
@@ -56,10 +56,10 @@
 						</div>
 					</div>
 				</div>                
-                <div class="azad-copyright" style="background:<?php echo get_theme_mod('copyright_bg','#39e1f5'); ?>;color:<?php echo get_theme_mod('copyright_color','#ffffff'); ?>;">
+                <div class="azad-copyright" style="background:<?php echo get_theme_mod( 'copyright_bg', '#39e1f5' ); ?>;color:<?php echo get_theme_mod( 'copyright_color', '#ffffff'); ?>;">
 					<div class="azad-container">
 						<div class="copyright-container">
-							<p><?php echo get_theme_mod('copyright_text','Copyright'); ?> <?php echo date("Y"); ?><a href="<?php echo home_url(); ?>"> <?php bloginfo('name'); ?></a></p>
+							<p><?php echo get_theme_mod( 'copyright_text', 'Copyright' ); ?> <?php echo date( "Y" ); ?><a href="<?php echo home_url(); ?>"> <?php bloginfo( 'name' ); ?></a></p>
 						</div>
 					</div>
                 </div>

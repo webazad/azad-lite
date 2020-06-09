@@ -11,7 +11,7 @@ get_header(); ?>
 	<div class="azad-container">
 		<div class="blog-container">
 			<?php 
-				get_template_part('loop','index'); 
+				get_template_part( 'loop', 'index' ); 
 				get_sidebar();
 			?>
 		</div>

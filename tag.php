@@ -16,11 +16,10 @@ get_header(); ?>
 				?>
 			</h1>
 			<?php 
-				get_template_part('loop','tag'); 
+				get_template_part( 'loop', 'tag' ); 
 				get_sidebar();
 			?>
 		</div>
 	</div>
 </section><!-- ends special section -->
-<?php get_footer(); ?>
-
+<?php get_footer();
