@@ -1,0 +1,12 @@
+@import "vars/_colors";
+@import "_reset";
+@import "_globals";
+@import "header/_preloader";
+@import "header/_header";
+// // @import "pages/_front.scss";
+// // @import "pages/_about.scss";
+// // @import "pages/_contact.scss";
+@import "pages/_blog";
+@import "pages/_search";
+@import "pages/_404";
+@import "footer/_footer";

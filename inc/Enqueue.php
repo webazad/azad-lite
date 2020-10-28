@@ -15,16 +15,40 @@ if ( ! class_exists( 'Enqueue' ) ) :
 
         public function azad_enqueue_scripts() {
 
-            wp_register_style( 'main', trailingslashit( get_template_directory_uri() ) . 'assets/css/main-style.css', array(), wp_get_theme( 'azad-lite')->get( 'Version' ), 'all' );
+            wp_register_style(
+                'main',
+                trailingslashit( get_template_directory_uri() ) . 'assets/css/main-style.min.css',
+                array(),
+                wp_get_theme( 'azad-lite')->get( 'Version' ),
+                'all'
+            );
             wp_enqueue_style('main');
 
-            wp_register_script( 'menu', trailingslashit( get_template_directory_uri() ) . 'assets/js/toggle-menu.js', array( 'jquery'), wp_get_theme('azad-lite')->get( 'Version' ), true );
+            wp_register_script(
+                'menu',
+                trailingslashit( get_template_directory_uri() ) . 'assets/js/toggle-menu.js',
+                array( 'jquery'),
+                wp_get_theme('azad-lite')->get( 'Version' ),
+                true
+            );
             wp_enqueue_script( 'menu' );
 
-            wp_register_script( 'preloader', trailingslashit( get_template_directory_uri() ) . 'assets/js/preloader.js', array('jquery'), wp_get_theme( 'azad-lite' )->get( 'Version' ), true );
+            wp_register_script(
+                'preloader',
+                trailingslashit( get_template_directory_uri() ) . 'assets/js/preloader.js',
+                array('jquery'),
+                wp_get_theme( 'azad-lite' )->get( 'Version' ),
+                true
+            );
             wp_enqueue_script( 'preloader' );
 
-            wp_register_script( 'index', trailingslashit( get_template_directory_uri() ) . 'assets/js/index.js', array( 'jquery' ), wp_get_theme( 'azad-lite' )->get( 'Version' ), true );
+            wp_register_script(
+                'index',
+                trailingslashit( get_template_directory_uri() ) . 'assets/js/index.js',
+                array( 'jquery' ),
+                wp_get_theme( 'azad-lite' )->get( 'Version' ),
+                true
+            );
             wp_enqueue_script( 'index' );
         }
         

@@ -17,6 +17,13 @@ html {
         color: var( --text-color ); 
         text-align: center;
 
+        main {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
+        }
+
         .azad-container {
             width: var( --width );
             margin: 0 auto;
@@ -90,11 +97,11 @@ html {
             border: 1px solid #c3c3c3;
             color: #cbcbcb;
             padding: 3px;
-        }
-        input:focus,
-        input: hover {
-            background: #ededed;
-            color: #4e4e4e;
+
+            &:focus, &:hover {
+                background: #ededed;
+                color: #4e4e4e;
+            }
         }
     }
 }
