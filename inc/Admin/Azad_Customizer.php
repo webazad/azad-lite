@@ -84,18 +84,18 @@ if ( ! class_exists( 'Azad_Customizer' ) ) :
                 'panel'             => 'header_panel',
                 'capability'        => 'edit_theme_options'
             ) );
-            // FOOTER LOGO SECTION
-            $wp_customize->add_section( 'footer_logo', array(
-                'title'             => __( 'Footer logo', 'azad-lite' ),
-                'description'       => 'Write something here...', 
+            // FOOTER SECTION
+            $wp_customize->add_section( 'footer_section', array(
+                'title'             => __( 'Footer Section', 'azad-lite' ),
+                'description'       => 'Entire footer customization is here', 
                 'priority'          => 11,
                 'panel'             => 'footer_panel',
                 'capability'        => 'edit_theme_options'
             ) );
-            // FOOTER TEXT SECTION
-			$wp_customize->add_section( 'footer_text', array(
-                'title'             => __( 'Footer Text', 'azad-lite' ),
-                'description'       => 'All about footer...', 
+            // COPYRIGHT SECTION
+			$wp_customize->add_section( 'copyright_section', array(
+                'title'             => __( 'Copyright Section', 'azad-lite' ),
+                'description'       => 'All about coppyright section...', 
                 'priority'          => 12,
                 'panel'             => 'footer_panel',
                 'capability'        => 'edit_theme_options'
@@ -120,19 +120,28 @@ if ( ! class_exists( 'Azad_Customizer' ) ) :
             $wp_customize->add_setting( 'header_logo_image', array(
                 'default'           => true,
             ) );
-            $wp_customize->add_setting( 'footer_logo_image', array(
-                'default'           => true,
+            // FOOTER SETTINGS
+            $wp_customize->add_setting( 'footer_bg_image', array(
+                'default'           => '',
+            ) );
+            $wp_customize->add_setting( 'footer_bg_color', array(
+                'default'           => '#ffffff',
+                'transport'         => 'refresh',
+            ) );
+            $wp_customize->add_setting( 'footer_text_color', array(
+                'default'           => '#000000',
+                'transport'         => 'refresh',
             ) );
 			$wp_customize->add_setting( 'copyright_text', array(
                 'default'           => 'Write copyright text here...',
                 'transport'         => 'refresh',
             ) );
-            $wp_customize->add_setting( 'copyright_bg', array(
-                'default'           => 'Copyright background is here',
+            $wp_customize->add_setting( 'copyright_bg_color', array(
+                'default'           => '#ffffff',
                 'transport'         => 'refresh',
             ) );
-            $wp_customize->add_setting( 'copyright_color', array(
-                'default'           => 'Copyright color is here',
+            $wp_customize->add_setting( 'copyright_text_color', array(
+                'default'           => '#000000',
                 'transport'         => 'refresh',
             ) );
         }
@@ -212,28 +221,41 @@ if ( ! class_exists( 'Azad_Customizer' ) ) :
             ) ) );
             // FOOTER CONTROLS
             $wp_customize->add_control( new \WP_Customize_Image_Control( $wp_customize, 'auto_add_featured_image', array(
-                'label'             => 'Upload Your Logo',
-                'description'       => 'Write something here...',        
-                'section'           => 'footer_logo',
-                'settings'          => 'footer_logo_image',    
+                'label'             => 'Upload Footer Background Image',
+                'description'       => 'Background image will show in the footer',        
+                'section'           => 'footer_section',
+                'settings'          => 'footer_bg_image',    
             ) ) );
-			$wp_customize->add_control( 'copyright_text',  array(
+            $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'footer_bg_color', array(
+                'label'             => 'Select Footer Background Color',
+                'description'       => 'This will show in footer background',        
+                'section'           => 'footer_section',
+                'settings'          => 'footer_bg_color',    
+            ) ) );
+            $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'footer_text_color', array(
+                'label'             => 'Select Footer Text Color',
+                'description'       => 'This will change footer text color',        
+                'section'           => 'footer_section',
+                'settings'          => 'footer_text_color',    
+            ) ) );
+
+            $wp_customize->add_control( 'copyright_text',  array(
                 'label'             => 'Write copyright text here...',
-                'description'       => 'Write copyright text...',        
-                'section'           => 'footer_text',
+                'description'       => 'Write below...',        
+                'section'           => 'copyright_section',
                 'type'              => 'text',    
             ) );
-            $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'copyright_bg', array(
-                'label'             => 'Select background color for footer',
-                'description'       => 'Select color...',        
-                'section'           => 'footer_text',
-                'settings'          => 'copyright_bg',    
+            $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'copyright_bg_color', array(
+                'label'             => 'Select Copyright Background Color',
+                'description'       => 'Select color below...',        
+                'section'           => 'copyright_section',
+                'settings'          => 'copyright_bg_color',    
             ) ) );
-            $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'copyright_color', array(
-                'label'             => 'Select text color for footer',
-                'description'       => 'Select color...',        
-                'section'           => 'footer_text',
-                'settings'          => 'copyright_color',    
+            $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'copyright_text_color', array(
+                'label'             => 'Select Footer Text Color',
+                'description'       => 'Select color here...',        
+                'section'           => 'copyright_section',
+                'settings'          => 'copyright_text_color',    
             ) ) );
         }
 
