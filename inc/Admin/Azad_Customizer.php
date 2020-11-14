@@ -60,7 +60,7 @@ if ( ! class_exists( 'Azad_Customizer' ) ) :
                 'panel'             => 'global_panel',
                 'capability'        => 'edit_theme_options'
             ) );
-            // SEARCH ICON SECTION
+            // SEARCH ICON
             $wp_customize->add_section( 'search_section', array(
                 'title'             => __( 'Enable search icon', 'azad-x' ),
                 'description'       => 'Enable search ion ...', 
@@ -68,7 +68,7 @@ if ( ! class_exists( 'Azad_Customizer' ) ) :
                 'panel'             => 'global_panel',
                 'capability'        => 'edit_theme_options'
             ) );
-            // BASECOLOR SECTION
+            // SITE COLORS
             $wp_customize->add_section( 'global_section', array(
                 'title'             => __( 'Base Colors', 'azad-lite' ),
                 'description'       => 'Write something here...', 
@@ -76,9 +76,17 @@ if ( ! class_exists( 'Azad_Customizer' ) ) :
                 'panel'             => 'global_panel',
                 'capability'        => 'edit_theme_options'
             ) );
-            // HEADER LOGO SECTION
-            $wp_customize->add_section( 'header_logo', array(
-                'title'             => __( 'Header logo', 'azad-lite' ),
+            // DESKTOP HEADER
+            $wp_customize->add_section( 'desktop_header', array(
+                'title'             => __( 'Desktop Header', 'azad-lite' ),
+                'description'       => 'Write something here...', 
+                'priority'          => 11,
+                'panel'             => 'header_panel',
+                'capability'        => 'edit_theme_options'
+            ) );
+            // RESPONSIVE HEADER
+            $wp_customize->add_section( 'responsive_header', array(
+                'title'             => __( 'Responsive Header', 'azad-lite' ),
                 'description'       => 'Write something here...', 
                 'priority'          => 11,
                 'panel'             => 'header_panel',
@@ -116,9 +124,37 @@ if ( ! class_exists( 'Azad_Customizer' ) ) :
 			$wp_customize->add_setting( 'header_search_icon', array(
                 'default'           => true,
             ) );
-            // PRELOADER SETTING
-            $wp_customize->add_setting( 'header_logo_image', array(
-                'default'           => true,
+            // DESKTOP HEADER
+            $wp_customize->add_setting( 'dh_logo_width', array(
+                'default'           => '',
+            ) );
+            $wp_customize->add_setting( 'dh_logo_height', array(
+                'default'           => '',
+            ) );
+            $wp_customize->add_setting( 'dh_padding_top', array(
+                'default'           => '',
+            ) );
+            $wp_customize->add_setting( 'dh_padding_bottom', array(
+                'default'           => '',
+            ) );
+            $wp_customize->add_setting( 'dh_bg', array(
+                'default'           => '',
+            ) );
+            // RESPONSIVE HEADER
+            $wp_customize->add_setting( 'rh_logo_width', array(
+                'default'           => '',
+            ) );
+            $wp_customize->add_setting( 'rh_logo_height', array(
+                'default'           => '',
+            ) );
+            $wp_customize->add_setting( 'rh_padding_top', array(
+                'default'           => '',
+            ) );
+            $wp_customize->add_setting( 'rh_padding_bottom', array(
+                'default'           => '',
+            ) );
+            $wp_customize->add_setting( 'rh_bg', array(
+                'default'           => '',
             ) );
             // FOOTER SETTINGS
             $wp_customize->add_setting( 'footer_bg_image', array(
@@ -153,7 +189,7 @@ if ( ! class_exists( 'Azad_Customizer' ) ) :
         }
 
         public function azad_add_controls( $wp_customize ) {    
-            // GLOBAL CONTROLS        
+            // ENABLE PRELOADER        
             $wp_customize->add_control( new \WP_Customize_Control( $wp_customize, 'enable_preloader', array(
                 'label'             => 'Select background color for footer',
                 'description'       => 'Select color...',        
@@ -182,48 +218,73 @@ if ( ! class_exists( 'Azad_Customizer' ) ) :
                 'section'           => 'global_section',
                 'settings'          => 'global_settings',    
             ) ) );
-            $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'bg_hover', array(
-                'label'             => 'Select background color for footer',
-                'description'       => 'Select color...',        
-                'section'           => 'global_section',
-                'settings'          => 'global_settings',    
-            ) ) );
             $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'text', array(
                 'label'             => 'Select background color for footer',
                 'description'       => 'Select color...',        
                 'section'           => 'global_section',
                 'settings'          => 'global_settings',    
             ) ) );
-            $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'text_hover', array(
-                'label'             => 'Select background color for footer',
-                'description'       => 'Select color...',        
-                'section'           => 'global_section',
-                'settings'          => 'global_settings',    
+            // DESKTOP HEADER
+            $wp_customize->add_control( new \WP_Customize_Image_Control( $wp_customize, 'dh_logo_width', array(
+                'label'             => 'Desktop Header Logo Width',
+                'description'       => 'Desktop header logo width...',        
+                'section'           => 'desktop_header',
+                'settings'          => 'dh_logo_width',    
             ) ) );
-            $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'black', array(
-                'label'             => 'Select background color for footer',
-                'description'       => 'Select color...',        
-                'section'           => 'global_section',
-                'settings'          => 'global_settings',    
+            $wp_customize->add_control( new \WP_Customize_Image_Control( $wp_customize, 'dh_logo_height', array(
+                'label'             => 'Desktop Header Logo Width',
+                'description'       => 'Desktop header logo width...',        
+                'section'           => 'desktop_header',
+                'settings'          => 'dh_logo_height',    
             ) ) );
-            $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'white', array(
-                'label'             => 'Select background color for footer',
-                'description'       => 'Select color...',        
-                'section'           => 'global_section',
-                'settings'          => 'global_settings',    
+            $wp_customize->add_control( new \WP_Customize_Image_Control( $wp_customize, 'dh_padding_top', array(
+                'label'             => 'Desktop Header Logo Width',
+                'description'       => 'Desktop header logo width...',        
+                'section'           => 'desktop_header',
+                'settings'          => 'dh_padding_top',    
             ) ) );
-            $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'transparent', array(
-                'label'             => 'Select background color for footer',
-                'description'       => 'Select color...',        
-                'section'           => 'global_section',
-                'settings'          => 'global_settings',    
+            $wp_customize->add_control( new \WP_Customize_Image_Control( $wp_customize, 'dh_padding_bottom', array(
+                'label'             => 'Desktop Header Logo Width',
+                'description'       => 'Desktop header logo width...',        
+                'section'           => 'desktop_header',
+                'settings'          => 'dh_padding_bottom',    
             ) ) );
-			// HEADER CONTROL
-            $wp_customize->add_control( new \WP_Customize_Image_Control( $wp_customize, 'header_featured_image', array(
-                'label'             => 'Upload Your Logo',
-                'description'       => 'Write something here...',        
-                'section'           => 'header_logo',
-                'settings'          => 'header_logo_image',    
+            $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'dh_bg', array(
+                'label'             => 'Desktop Header Logo Width',
+                'description'       => 'Desktop header logo width...',        
+                'section'           => 'desktop_header',
+                'settings'          => 'dh_bg',    
+            ) ) );
+            // RESPONSIVE HEADER
+            $wp_customize->add_control( new \WP_Customize_Image_Control( $wp_customize, 'rh_logo_width', array(
+                'label'             => 'Responsive Header Logo Width',
+                'description'       => 'Responsive header logo with here...',        
+                'section'           => 'responsive_header',
+                'settings'          => 'rh_logo_width',    
+            ) ) );
+            $wp_customize->add_control( new \WP_Customize_Image_Control( $wp_customize, 'rh_logo_height', array(
+                'label'             => 'Responsive Header Logo Width',
+                'description'       => 'Responsive header logo with here...',        
+                'section'           => 'responsive_header',
+                'settings'          => 'rh_logo_height',    
+            ) ) );
+            $wp_customize->add_control( new \WP_Customize_Image_Control( $wp_customize, 'rh_padding_top', array(
+                'label'             => 'Responsive Header Logo Width',
+                'description'       => 'Responsive header logo with here...',        
+                'section'           => 'responsive_header',
+                'settings'          => 'rh_padding_top',    
+            ) ) );
+            $wp_customize->add_control( new \WP_Customize_Image_Control( $wp_customize, 'rh_padding_bottom', array(
+                'label'             => 'Responsive Header Logo Width',
+                'description'       => 'Responsive header logo with here...',        
+                'section'           => 'responsive_header',
+                'settings'          => 'rh_padding_bottom',    
+            ) ) );
+            $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'rh_bg', array(
+                'label'             => 'Responsive Header Logo Width',
+                'description'       => 'Responsive header logo with here...',        
+                'section'           => 'responsive_header',
+                'settings'          => 'rh_bg',    
             ) ) );
             // FOOTER CONTROLS
             $wp_customize->add_control( new \WP_Customize_Image_Control( $wp_customize, 'auto_add_featured_image', array(
