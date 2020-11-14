@@ -123,26 +123,32 @@ if ( ! class_exists( 'Azad_Customizer' ) ) :
             // FOOTER SETTINGS
             $wp_customize->add_setting( 'footer_bg_image', array(
                 'default'           => '',
+                'transport'         => 'postMessage',
             ) );
             $wp_customize->add_setting( 'footer_bg_color', array(
-                'default'           => '#ffffff',
-                'transport'         => 'refresh',
+                'default'           => 'transparent',
+                'transport'         => 'postMessage',
+                // 'transport'         => 'refresh',
             ) );
             $wp_customize->add_setting( 'footer_text_color', array(
                 'default'           => '#000000',
-                'transport'         => 'refresh',
+                'transport'         => 'postMessage',
+                // 'transport'         => 'refresh',
             ) );
 			$wp_customize->add_setting( 'copyright_text', array(
                 'default'           => 'Write copyright text here...',
-                'transport'         => 'refresh',
+                'transport'         => 'postMessage',
+                // 'transport'         => 'refresh',
             ) );
             $wp_customize->add_setting( 'copyright_bg_color', array(
                 'default'           => '#ffffff',
-                'transport'         => 'refresh',
+                'transport'         => 'postMessage',
+                // 'transport'         => 'refresh',
             ) );
             $wp_customize->add_setting( 'copyright_text_color', array(
                 'default'           => '#000000',
-                'transport'         => 'refresh',
+                'transport'         => 'postMessage',
+                // 'transport'         => 'refresh',
             ) );
         }
 
@@ -243,6 +249,7 @@ if ( ! class_exists( 'Azad_Customizer' ) ) :
                 'label'             => 'Write copyright text here...',
                 'description'       => 'Write below...',        
                 'section'           => 'copyright_section',
+                'settings'          => 'copyright_text',
                 'type'              => 'text',    
             ) );
             $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'copyright_bg_color', array(

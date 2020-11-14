@@ -10,17 +10,23 @@
 <html class="no-js" <?php language_attributes(); ?>>
 
     <head>
-        <meta charset="<?php bloginfo( 'charset' ); ?>">
+        
+		<meta http-equiv="Content-Type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php bloginfo( "charset" ); ?>" />
         <!-- device code -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-	    <?php wp_head(); ?>
+        <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+		<!-- to make the header scripts works -->
+        <?php wp_head(); ?>
+		
     </head>
 
     <body <?php body_class(); ?>>
     
         <?php        
             // Check whether the preloader is activated in the customizer.
-            $enable_preloader = get_theme_mod( 'preloader_settings', false );	
+            $enable_preloader = get_theme_mod( 'preloader_settings', false );
+            // Check whether the header search is activated in the customizer.
+            $enable_header_search = get_theme_mod( 'header_search_icon', true );									
             
             if ( $enable_preloader ) : ?>
             <!-- PRELOADER BEGINS -->
@@ -41,9 +47,24 @@
                 <?php azad_header_top(); ?>
                 <div class="azad-container">
                     <div class="header-container">
-                        <div class="logo">
-                            <hgroup><?php azad_site_logo(); ?></hgroup>
-                            <div id="hamburger-menu" class="burger-button"><span></span></div>
+                        <div class="logo-wrapper">
+
+                            <div class="logo">
+                                <hgroup><?php azad_site_logo(); ?></hgroup>
+                            </div>
+                            <!-- <div id="hamburger-menu" class="burger-button"><span></span></div> -->
+
+                            <!-- RESPONSIVE TOGGLE BUTTON BEGINS -->
+                            <button class="toggle nav-toggle responsive-nav-toggle" data-toggle-target=".menu-modal" data-toggle-body-class="showing-menu-modal" aria-expanded="false" data-set-focus=".close-nav-toggle">
+								<div id="hamburger-menu" class="burger-button">
+									<span></span>
+                                </div>
+                                <!-- <span class="toggle-inner">
+                                    <?php azad_the_svg( 'ellipsis' ); ?>
+                                    <span class="toggle-text"><?php _e( 'Menu', 'azad-guineapig' ); ?></span>
+                                </span> -->
+                            </button><!-- ends responsive toggle button -->
+
                         </div>
                         <div class="azad-nav">
                             <nav class="desktop-menus">
@@ -74,11 +95,7 @@
                                     }
                                 ?>
                             </nav>
-                            <?php
-								// Check whether the header search is activated in the customizer.
-								$enable_header_search = get_theme_mod( 'enable_header_search', true );								
-								if( $enable_header_search ) : ?>
-                                <!-- asdf -->
+                            <?php if( $enable_header_search ) : ?>
                                 <div class="azad-search-button">
                                     <div class="header-toggles hide-no-js">
                                         <div class="toggle-wrapper search-toggle-wrapper">
@@ -90,7 +107,7 @@
                                             </button><!-- .search-toggle -->
                                         </div>
                                     </div>
-                                </div><!-- asdf -->
+                                </div>
                             <?php endif; ?>
                         </div>                        
                     </div>                    
@@ -132,4 +149,4 @@
             </header><!-- ends header section -->
             <?php
                 // Output the menu modal.
-                get_template_part( 'template-parts/modal-menu' );
+                //get_template_part( 'template-parts/modal-menu' );

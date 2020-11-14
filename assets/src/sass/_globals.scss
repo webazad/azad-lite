@@ -3,33 +3,31 @@
 *   = GLOBAL STYLE
 *-------------------------------------------------------
 */
-:root {
-    --ff: verdana;
-    --width: 85vw;
-    --padding-top: 5rem;
-    --paddin-bottom: 5rem;
-}
 html {
     background: var( --bg-color ); 
 
     body { 
-        font: 1em/1.25em "Cabin", Helvetica, Arial, sans-serif; 
         color: var( --text-color ); 
         text-align: center;
+        line-height: 1.2em;
+        font: 1em/1.25em "Cabin", Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased; /* Chrome Suffery     */
+        -moz-font-smoothing: antialiased; 	 /* Firefox            */
+        -ms-font-smoothing: antialiased; 	 /* Internet Explorer  */
+        -o-font-smoothing: antialiased; 	 /* Opera              */
+        font-smoothing: antialiased; 		 /* Official           */ 
 
         main {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            // justify-content: space-between;
             min-height: 100vh;
-        }
 
-        .azad-container {
-            width: var( --width );
-            margin: 0 auto;
-        }
-        .azad-section {
-            padding: var( --padding-top ) 0;
+            .azad-container {
+                width: calc( 100% - 15rem );
+                margin: 0 auto;
+                overflow: hidden;
+            }
         }
 
         h1 {
@@ -109,7 +107,34 @@ html {
 @media only screen and ( max-width: 767px ),
 only screen and ( max-device-width: 767px ) {
     
-    .azad-section {
-        padding: 3rem 0;
+    html {
+
+        body {
+
+            main {
+
+                .azad-container {
+                    width: calc( 100% - 2rem );
+                    margin: 0 auto;
+                }
+            }   
+        }
     }
+
+}
+
+.screen-reader-text {
+    border: 0;
+    clip: rect( 1px, 1px, 1px, 1px );
+    -webkit-clip-path: inset( 50% );
+    clip-path: inset( 50% );
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute !important;
+    width: 1px;
+    color: red;
+    word-wrap: normal !important;
+    word-break: normal;
 }

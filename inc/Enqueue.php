@@ -6,11 +6,25 @@ defined( 'ABSPATH' ) || exit;
 
 if ( ! class_exists( 'Enqueue' ) ) :
 
-    class Enqueue{
+    class Enqueue {
         private static $_instance;
 
         public function __construct() {
             add_action( 'wp_enqueue_scripts', array( $this, 'azad_enqueue_scripts' ) );
+            add_action( 'customize_preview_init', array( $this, 'azad_customize_preview' ) );
+        }
+
+        public function azad_customize_preview() {
+
+            wp_register_script(
+                'customize_preview',
+                trailingslashit( get_template_directory_uri() ) . 'assets/js/customize_preview.js',
+                array( 'jquery', 'customize-preview' ),
+                wp_get_theme('azad-lite')->get( 'Version' ),
+                true
+            );
+            wp_enqueue_script( 'customize_preview' );
+
         }
 
         public function azad_enqueue_scripts() {
@@ -43,13 +57,13 @@ if ( ! class_exists( 'Enqueue' ) ) :
             wp_enqueue_script( 'preloader' );
 
             wp_register_script(
-                'index',
-                trailingslashit( get_template_directory_uri() ) . 'assets/js/index.js',
+                'toggles',
+                trailingslashit( get_template_directory_uri() ) . 'assets/js/toggles.js',
                 array( 'jquery' ),
                 wp_get_theme( 'azad-lite' )->get( 'Version' ),
                 true
             );
-            wp_enqueue_script( 'index' );
+            wp_enqueue_script( 'toggles' );
         }
         
         public static function get_instance() {

@@ -1,280 +1,342 @@
-.azad-header {
-    background: var( --white );
-    -webkit-box-shadow: var( --shadow );
-    -ms-box-shadow: var( --shadow );
-    -moz-box-shadow: var( --shadow );
-    box-shadow: var( --shadow );
+body {
+    
+    .azad-header {
+        border-bottom: 1px solid #e3e3e3;
 
-    .header-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 1rem 0;
-
-        .logo {
-            max-width: 50%;
-            text-align: left;
-            position: relative;
+        .header-container {
             display: flex;
-            align-items: center;
+            flex-direction: row;
+            justify-content: space-between;
+			padding: 1rem 0;
 
-            h1 {
-                line-height: 0;
-                a {
-                    display: inline-block;
-                }
-            }
-            .burger-button {
-                display: none;
-            }
-        }
-        .azad-nav {
-            display: flex;
-            align-items: center;
-            .desktop-menus {
-                ul {
-                    display: flex;
-                    justify-content: flex-end;
+            .logo-wrapper {
 
-                    li {
-                        margin-left: 2.5rem;
-                        position: relative;                       
+                .logo {
 
+                    hgroup {
+                        line-height: 0;
+
+                        h1 {
+
+                            a {
+                                display: inline-block;
+                                
+                                img {
+                                    height: 80px;
+                                    width: auto;
+                                }
+                            }
+                        }
                         a {
-                            color: #cd2653;
-                            display: block;
-                            padding-right: 1rem;
-                            position: relative;
-                            font-size: 1.5rem;
-                            &:hover {
-                                text-decoration: underline;
-                            }
-                        }
-                        .icon {
-                            color: #cd2653;
-                            display: block;
-                            height: 0.5rem;
-                            position: absolute;
-                            width: 1rem;
-                            pointer-events: none;
-                            transform: rotate( -45deg );
-                            right: -0.5rem;
-                            top: calc( 50% - 0.4rem );
+                            display: inline-block;
                             
-                            &:before,
-                            &:after{
-                                content: "";
-                                display: block;
-                                background-color: currentColor;
-                                position: absolute;
-                                bottom: calc( 50% - 0.1rem );
-                                left: 0;
+                            img {
+                                height: 80px;
+                                width: auto;
                             }
-                            &:before{
-                                height: 0.5rem;
-                                width: 0.1rem;
-                            }
-                            &:after {
-                                height: 0.1rem;
-                                width: 0.5rem;
-                            }
-                        }
-                        ul {
-                            border-radius: 0.4rem;
-                            color: #fff;
-                            font-size: 1.7rem;
-                            opacity: 0;
-                            padding: 1rem 0;
-                            position: absolute;
-                            right: 9999rem;
-                            top: calc( 100% + 2rem );
-                            transition: opacity 0.15s linear,
-                            transform 0.15s linear, right 0s 0.15s;
-                            transform: translateY( 0.6rem );
-                            width: 13rem;
-                            z-index: 1;
-                            background: var( --black );
-                            text-align: left;
-                            display: initial;
-
-                            li {
-                                margin-left: 0;
-                                a {
-                                    display: block;
-                                    padding: .5rem;
-                                    color: #ffffff;
-                                    text-align: left;
-                                    text-decoration: none !important;
-                                    &:hover {
-                                        text-decoration: underline !important;
-                                    }
-                                }
-                                &:hover > ul {
-                                    right: calc( 100% + 1.5rem );
-                                }
-                                .icon {
-                                    right: 1rem;
-                                    color: var( --white );
-                                }
-                                ul {
-                                    top: -1rem;
-                                    &:before {
-                                        top: 0;
-                                        height: auto;
-                                        width: 1.5rem;
-                                        left: auto;
-                                        right: -1.5rem;
-                                        bottom: 0;
-                                    }
-                                    &:after {
-                                        border-bottom-color: transparent;
-                                        border-left-color: #000000;
-                                        top: 1.5rem;
-                                        right: -1.2rem;
-                                        bottom: auto;
-                                    }
-                                }
-                            }
-
-                            &:before,
-                            &:after {
-                                content: "";
-                                display: block;
-                                position: absolute;
-                                bottom: 100%;
-                            }
-                            &:before {
-                                height: 2rem;
-                                left: 0;
-                                right: 0;
-                            }
-                            &:after {
-                                border: 0.6rem solid transparent;
-                                border-bottom-color: #000;
-                                right: 1.8rem;
-                            }
-                        }
-                        &:hover > ul{
-                            right: 0;
-                            opacity: 1;
-                            transform: translateY( 0 );
-                            transition: opacity 0.15s linear, transform 0.15s linear;
                         }
                     }
-                    .current-menu-item > a {
-                        text-decoration: underline !important;
-                    }                    
+                    .burger-button {
+                        display: none;
+                    }
                 }
+
+                .responsive-search-toggle,
+                .responsive-nav-toggle {
+                    display: none;
+                }
+                
             }
-            .azad-search-button {
+            .azad-nav {
                 display: flex;
                 align-items: center;
-                margin-left: 1.5rem;
-                    
-                .toggle-wrapper {
-                    line-height: 0;
-                    .toggle {
-                        border: none;
-                        background: none;
-                        cursor: pointer;
-                        .toggle-inner {
-                            display: flex;
-                            justify-content: center;
+
+                .desktop-menus {
+
+                    ul {
+                        display: flex;
+                        justify-content: flex-end;
+
+                        li {
+                            margin-left: 2.5rem;
+                            position: relative;                       
+
+                            a {
+                                color: #cd2653;
+                                display: block;
+                                padding-right: 1rem;
+                                position: relative;
+                                font-size: 1.2rem;
+                                &:hover {
+                                    text-decoration: underline;
+                                }
+                            }
+                            .icon {
+                                color: #cd2653;
+                                display: block;
+                                height: 0.5rem;
+                                position: absolute;
+                                width: 1rem;
+                                pointer-events: none;
+                                transform: rotate( -45deg );
+                                right: -0.5rem;
+                                top: calc( 50% - 0.4rem );
+                                
+                                &:before,
+                                &:after{
+                                    content: "";
+                                    display: block;
+                                    background-color: currentColor;
+                                    position: absolute;
+                                    bottom: calc( 50% - 0.1rem );
+                                    left: 0;
+                                }
+                                &:before{
+                                    height: 0.5rem;
+                                    width: 0.1rem;
+                                }
+                                &:after {
+                                    height: 0.1rem;
+                                    width: 0.5rem;
+                                }
+                            }
+                            ul {
+                                border-radius: 0.4rem;
+                                color: #fff;
+                                font-size: 1.7rem;
+                                opacity: 0;
+                                padding: 1rem 0;
+                                position: absolute;
+                                right: 9999rem;
+                                top: calc( 100% + 2rem );
+                                transition: opacity 0.15s linear,
+                                transform 0.15s linear, right 0s 0.15s;
+                                transform: translateY( 0.6rem );
+                                width: 13rem;
+                                z-index: 1;
+                                background: var( --black );
+                                text-align: left;
+                                display: initial;
+
+                                li {
+                                    margin-left: 0;
+                                    a {
+                                        display: block;
+                                        padding: .5rem;
+                                        color: #ffffff;
+                                        text-align: left;
+                                        text-decoration: none !important;
+                                        &:hover {
+                                            text-decoration: underline !important;
+                                        }
+                                    }
+                                    &:hover > ul {
+                                        right: calc( 100% + 1.5rem );
+                                    }
+                                    .icon {
+                                        right: 1rem;
+                                        color: var( --white );
+                                    }
+                                    ul {
+                                        top: -1rem;
+                                        &:before {
+                                            top: 0;
+                                            height: auto;
+                                            width: 1.5rem;
+                                            left: auto;
+                                            right: -1.5rem;
+                                            bottom: 0;
+                                        }
+                                        &:after {
+                                            border-bottom-color: transparent;
+                                            border-left-color: #000000;
+                                            top: 1.5rem;
+                                            right: -1.2rem;
+                                            bottom: auto;
+                                        }
+                                    }
+                                }
+
+                                &:before,
+                                &:after {
+                                    content: "";
+                                    display: block;
+                                    position: absolute;
+                                    bottom: 100%;
+                                }
+                                &:before {
+                                    height: 2rem;
+                                    left: 0;
+                                    right: 0;
+                                }
+                                &:after {
+                                    border: 0.6rem solid transparent;
+                                    border-bottom-color: #000;
+                                    right: 1.8rem;
+                                }
+                            }
+                            &:hover > ul{
+                                right: 0;
+                                opacity: 1;
+                                transform: translateY( 0 );
+                                transition: opacity 0.15s linear, transform 0.15s linear;
+                            }
                         }
-                        &:focus {
-                            outline: none;
-                        }
+                        .current-menu-item > a {
+                            text-decoration: underline !important;
+                        }                    
                     }
                 }
-            }  
+
+                .azad-search-button {
+                    display: flex;
+                    align-items: center;
+                    margin-left: 1.5rem;
+                        
+                    .toggle-wrapper {
+                        line-height: 0;
+                        .toggle {
+                            border: none;
+                            background: none;
+                            cursor: pointer;
+                            .toggle-inner {
+                                display: flex;
+                                justify-content: center;
+                            }
+                            &:focus {
+                                outline: none;
+                            }
+                        }
+                    }
+                }  
+            }
         }
-    }
-    .mobile-menus {
-        display: none;
+        .mobile-menus {
+            display: none;
+        }
     }
 }
 
 @media only screen and (max-width: 767px),
 only screen and ( max-device-width: 767px ) {
 
-    .azad-header {
-        .header-container {
-            flex-direction: column;  
-            margin:1rem 0;          
-            .logo {
-                text-align: center;
-                position: relative;
+    body {
 
-                .burger-button {
-                    padding: 5px;
-                    border-radius: 4px;
-                    background: var( --text );
-                    width: 40px;
-                    height: 40px;
+        .azad-header {
+
+            .header-container {
+                flex-direction: column;  
+                padding: .5rem 0;          
+
+                .logo-wrapper {
                     display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
                     align-items: center;
-                    position: absolute;
-                    top: 50%;
-                    right: 0;
-                    transform: translate( 0%,-50%) rotate( 0deg );                    
 
-                    span {
-                        position: relative;
-                        width: 100%;
-                        height: 4px;
-                        background: var( --white );
+                    .logo {
 
-                        &:before,
-                        &:after {
-                            content: '';
-                            display: block;
-                            width: 100%;
-                            height: 100%;
-                            position: absolute;
-                            top: -12px;
-                            background: var( --white );
-                            transition:all .5s ease-in-out;
+                        hgroup {
+
+                            h1 {
+
+                                a {
+                                    display: inline-block;
+                                    
+                                    img {
+                                        height: 75px;
+                                        width: auto;
+                                    }
+                                }
+                            }
+                            a {
+                                display: inline-block;
+                                
+                                img {
+                                    height: 75px;
+                                    width: auto;
+                                }
+                            }
                         }
-                        &:after {
-                            top: 12px;
-                        }
-                    }
-                }
-                .burger-button.active {
-                    span {
-                        background: none;
-                        &:before,
-                        &:after {
-                            top: 0;
-                        }
-                        &:before {
-                            transform: rotate( 45deg );
-                        }
-                        &:after {
-                            transform: rotate( 315deg );
-                        }
-                    }
-                }                                
-            }
-            .desktop-menus {
-                display: none;
-            }
-        }
-        .mobile-menus {
-            background: var( --text ); 
-            color: var( --black );
-            padding: 1rem 0;
-            marign-top: 1rem;
-            ul {
-                li {
-                    a {
-                        padding: 10px 0;
-                        color: var( --white );
+                    }                    
+
+                    .responsive-search-toggle,
+                    .responsive-nav-toggle {
                         display: block;
-                        text-transform: uppercase;
+                        outline: none;
+                            
+                        .burger-button {
+                            padding: 0;
+                            border-radius: 4px;
+                            width: 30px;
+                            height: 40px;
+                            display: flex;
+                            align-items: center;
+                            position: absolute;
+                            top: 50%;
+                            right: 0;
+                            transform: translate( 0%, -50% ) rotate( 0deg );                    
+
+                            span {
+                                position: relative;
+                                width: 100%;
+                                height: 4px;
+                                background: red;
+
+                                &:before, &:after {
+                                    content: '';
+                                    display: block;
+                                    width: 100%;
+                                    height: 100%;
+                                    position: absolute;
+                                    background: red;
+                                    transition:all .5s ease-in-out;
+                                }
+                                &:before {
+                                    top: -10px;
+                                }
+                                &:after {
+                                    top: 10px;
+                                }
+                            }
+                        }
                     }
-                }                
-            }            
+                    .burger-button.active {
+                        span {
+                            background: none;
+                            &:before,
+                            &:after {
+                                top: 0;
+                            }
+                            &:before {
+                                transform: rotate( 45deg );
+                            }
+                            &:after {
+                                transform: rotate( 315deg );
+                            }
+                        }
+                    }                                
+                }
+                .azad-nav {
+                    display: none;
+                }
+            }
+            .mobile-menus {
+                background: var( --text ); 
+                color: var( --black );
+                padding: 1rem 0;
+                marign-top: 1rem;
+                ul {
+                    li {
+                        a {
+                            padding: 10px 0;
+                            color: var( --white );
+                            display: block;
+                            text-transform: uppercase;
+                        }
+                    }                
+                }            
+            }
         }
     }
 }
@@ -296,6 +358,93 @@ only screen and ( max-device-width: 767px ) {
 // 	display: none !important;
 // }
 
+/**
+*-----------------------------------------
+* TOGGLES DESIGN
+*-----------------------------------------
+*/
+button.toggle {
+	background: none;
+	border: none;
+	box-shadow: none;
+	border-radius: 0;
+	font-size: inherit;
+	font-weight: 400;
+	letter-spacing: inherit;
+	padding: 0;
+	text-transform: none;
+
+	.toggle-inner {
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		align-items: center;
+
+		.toggle-text {
+			color: #6d6d6d;
+			font-size: .8rem;
+			font-weight: 600;
+			width: auto;
+			white-space: nowrap;
+			word-break: break-all;
+		}
+	}
+}
+
+.toggle {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	color: inherit;
+	cursor: pointer;
+	font-family: inherit;
+	position: relative;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	text-align: inherit;
+	user-select: none;
+}
+
+// Navigation Toggle
+.nav-toggle {
+	width: 6.6rem;
+	height: 2.5rem;
+
+	.toggle-inner {
+		.toggle-text {
+			margin-top: .5rem;
+		}
+	}
+}
+
+// Search Toggle
+.search-toggle {
+	width: 6.6rem;
+	height: 2.5rem;
+}
+
+.header-container .toggle path {
+	fill: currentColor;
+}
+
+.header-container .toggle:focus .toggle-text,
+.header-container .toggle:hover .toggle-text {
+	//text-decoration: underline;
+	text-decoration: none;
+}
+
+.overlay-header .toggle-text {
+	color: inherit;
+}
+
+
+/**
+*-----------------------------------------
+* COVER MODAL DESIGN
+*-----------------------------------------
+*/
 .cover-modal {
 	display: none;
 	-ms-overflow-style: none;
@@ -414,17 +563,6 @@ button.search-untoggle {
     justify-content: center;
     margin-right: -2.5rem;
     padding: 0 2.5rem !important;
-}
-button.toggle {
-    background: none;
-    border: none;
-    box-shadow: none;
-    border-radius: 0;
-    font-size: inherit;
-    font-weight: 400;
-    letter-spacing: inherit;
-    padding: 0;
-    text-transform: none;
 }
 
 // NEW INFO

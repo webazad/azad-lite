@@ -2,10 +2,10 @@
 	Namespace
 --------------------------------------------------------------------------------------------------- */
 
-var twentytwenty = twentytwenty || {};
+var azad = azad || {};
 
 // Set a default value for scrolled.
-twentytwenty.scrolled = 0;
+azad.scrolled = 0;
 
 // polyfill closest
 // https://developer.mozilla.org/en-US/docs/Web/API/Element/closest#Polyfill
@@ -41,7 +41,7 @@ if ( window.NodeList && ! NodeList.prototype.forEach ) {
 }
 
 // event "polyfill"
-twentytwenty.createEvent = function( eventName ) {
+azad.createEvent = function( eventName ) {
 	var event;
 	if ( typeof window.Event === 'function' ) {
 		event = new Event( eventName );
@@ -71,7 +71,7 @@ if ( ! Element.prototype.matches ) {
 
 // Add a class to the body for when touch is enabled for browsers that don't support media queries
 // for interaction media features. Adapted from <https://codepen.io/Ferie/pen/vQOMmO>
-twentytwenty.touchEnabled = {
+azad.touchEnabled = {
 
 	init: function() {
 		var matchMedia = function() {
@@ -85,13 +85,13 @@ twentytwenty.touchEnabled = {
 			document.body.classList.add( 'touch-enabled' );
 		}
 	}
-}; // twentytwenty.touchEnabled
+}; // azad.touchEnabled
 
 /*	-----------------------------------------------------------------------------------------------
 	Cover Modals
 --------------------------------------------------------------------------------------------------- */
 
-twentytwenty.coverModals = {
+azad.coverModals = {
 
 	init: function() {
 		if ( document.querySelector( '.cover-modal' ) ) {
@@ -136,6 +136,17 @@ twentytwenty.coverModals = {
 		document.addEventListener( 'click', function( event ) {
 			var target = event.target;
 			var modal = document.querySelector( '.cover-modal.active' );
+			
+			// if target onclick is <a> with # within the href attribute
+			if ( event.target.tagName.toLowerCase() === 'a' && event.target.hash.includes( '#' ) && modal !== null ) {
+				// untoggle the modal
+				this.untoggleModal( modal );
+				// wait 550 and scroll to the anchor
+				setTimeout( function() {
+					var anchor = document.getElementById( event.target.hash.slice( 1 ) );
+					anchor.scrollIntoView();
+				}, 550 );
+			}
 
 			if ( target === modal ) {
 				this.untoggleModal( target );
@@ -204,7 +215,7 @@ twentytwenty.coverModals = {
 					htmlStyle.setProperty( styleKey, styles[ styleKey ] );
 				} );
 
-				_win.twentytwenty.scrolled = parseInt( styles.top, 10 );
+				_win.azad.scrolled = parseInt( styles.top, 10 );
 
 				if ( adminBar ) {
 					_doc.body.style.setProperty( 'padding-top', paddingTop );
@@ -228,7 +239,7 @@ twentytwenty.coverModals = {
 				}
 
 				setTimeout( function() {
-					var clickedEl = twentytwenty.toggles.clickedEl;
+					var clickedEl = azad.toggles.clickedEl;
 
 					modal.classList.remove( 'show-modal' );
 
@@ -246,9 +257,9 @@ twentytwenty.coverModals = {
 						clickedEl = false;
 					}
 
-					_win.scrollTo( 0, Math.abs( _win.twentytwenty.scrolled + getAdminBarHeight() ) );
+					_win.scrollTo( 0, Math.abs( _win.azad.scrolled + getAdminBarHeight() ) );
 
-					_win.twentytwenty.scrolled = 0;
+					_win.azad.scrolled = 0;
 				}, 500 );
 			} );
 		} );
@@ -277,13 +288,13 @@ twentytwenty.coverModals = {
 		}
 	}
 
-}; // twentytwenty.coverModals
+}; // azad.coverModals
 
 /*	-----------------------------------------------------------------------------------------------
 	Intrinsic Ratio Embeds
 --------------------------------------------------------------------------------------------------- */
 
-twentytwenty.intrinsicRatioVideos = {
+azad.intrinsicRatioVideos = {
 
 	init: function() {
 		this.makeFit();
@@ -320,12 +331,12 @@ twentytwenty.intrinsicRatioVideos = {
 		} );
 	}
 
-}; // twentytwenty.instrinsicRatioVideos
+}; // azad.instrinsicRatioVideos
 
 /*	-----------------------------------------------------------------------------------------------
 	Modal Menu
 --------------------------------------------------------------------------------------------------- */
-twentytwenty.modalMenu = {
+azad.modalMenu = {
 
 	init: function() {
 		// If the current menu item is in a sub level, expand all the levels higher up on load
@@ -340,10 +351,10 @@ twentytwenty.modalMenu = {
 			var activeMenuItem = modalMenu.querySelector( '.current-menu-item' );
 
 			if ( activeMenuItem ) {
-				twentytwentyFindParents( activeMenuItem, 'li' ).forEach( function( element ) {
+				azadFindParents( activeMenuItem, 'li' ).forEach( function( element ) {
 					var subMenuToggle = element.querySelector( '.sub-menu-toggle' );
 					if ( subMenuToggle ) {
-						twentytwenty.toggles.performToggle( subMenuToggle, true );
+						azad.toggles.performToggle( subMenuToggle, true );
 					}
 				} );
 			}
@@ -355,7 +366,7 @@ twentytwenty.modalMenu = {
 
 		_doc.addEventListener( 'keydown', function( event ) {
 			var toggleTarget, modal, selectors, elements, menuType, bottomMenu, activeEl, lastEl, firstEl, tabKey, shiftKey,
-				clickedEl = twentytwenty.toggles.clickedEl;
+				clickedEl = azad.toggles.clickedEl;
 
 			if ( clickedEl && _doc.body.classList.contains( 'showing-modal' ) ) {
 				toggleTarget = clickedEl.dataset.toggleTarget;
@@ -402,13 +413,13 @@ twentytwenty.modalMenu = {
 			}
 		} );
 	}
-}; // twentytwenty.modalMenu
+}; // azad.modalMenu
 
 /*	-----------------------------------------------------------------------------------------------
 	Primary Menu
 --------------------------------------------------------------------------------------------------- */
 
-twentytwenty.primaryMenu = {
+azad.primaryMenu = {
 
 	init: function() {
 		this.focusMenuWithChildren();
@@ -451,13 +462,13 @@ twentytwenty.primaryMenu = {
 			}
 		}
 	}
-}; // twentytwenty.primaryMenu
+}; // azad.primaryMenu
 
 /*	-----------------------------------------------------------------------------------------------
 	Toggles
 --------------------------------------------------------------------------------------------------- */
 
-twentytwenty.toggles = {
+azad.toggles = {
 
 	clickedEl: false,
 
@@ -494,9 +505,9 @@ twentytwenty.toggles = {
 
 		// Trigger events on the toggle targets before they are toggled
 		if ( target.classList.contains( activeClass ) ) {
-			target.dispatchEvent( twentytwenty.createEvent( 'toggle-target-before-active' ) );
+			target.dispatchEvent( azad.createEvent( 'toggle-target-before-active' ) );
 		} else {
-			target.dispatchEvent( twentytwenty.createEvent( 'toggle-target-before-inactive' ) );
+			target.dispatchEvent( azad.createEvent( 'toggle-target-before-inactive' ) );
 		}
 
 		// Get the class to toggle, if specified
@@ -517,7 +528,7 @@ twentytwenty.toggles = {
 
 			// Toggle the target of the clicked toggle
 			if ( toggle.dataset.toggleType === 'slidetoggle' && ! instantly && duration !== '0' ) {
-				twentytwentyMenuToggle( newTarget, duration );
+				azadMenuToggle( newTarget, duration );
 			} else {
 				newTarget.classList.toggle( classToToggle );
 			}
@@ -533,10 +544,10 @@ twentytwenty.toggles = {
 			}
 
 			// Toggle aria-expanded on the toggle
-			twentytwentyToggleAttribute( toggle, 'aria-expanded', 'true', 'false' );
+			azadToggleAttribute( toggle, 'aria-expanded', 'true', 'false' );
 
 			if ( self.clickedEl && -1 !== toggle.getAttribute( 'class' ).indexOf( 'close-' ) ) {
-				twentytwentyToggleAttribute( self.clickedEl, 'aria-expanded', 'true', 'false' );
+				azadToggleAttribute( self.clickedEl, 'aria-expanded', 'true', 'false' );
 			}
 
 			// Toggle body class
@@ -558,13 +569,13 @@ twentytwenty.toggles = {
 			}
 
 			// Trigger the toggled event on the toggle target
-			target.dispatchEvent( twentytwenty.createEvent( 'toggled' ) );
+			target.dispatchEvent( azad.createEvent( 'toggled' ) );
 
 			// Trigger events on the toggle targets after they are toggled
 			if ( target.classList.contains( activeClass ) ) {
-				target.dispatchEvent( twentytwenty.createEvent( 'toggle-target-after-active' ) );
+				target.dispatchEvent( azad.createEvent( 'toggle-target-after-active' ) );
 			} else {
-				target.dispatchEvent( twentytwenty.createEvent( 'toggle-target-after-inactive' ) );
+				target.dispatchEvent( azad.createEvent( 'toggle-target-after-inactive' ) );
 			}
 		}, timeOutTime );
 	},
@@ -628,7 +639,7 @@ twentytwenty.toggles = {
 		} );
 	}
 
-}; // twentytwenty.toggles
+}; // azad.toggles
 
 /**
  * Is the DOM ready
@@ -637,7 +648,7 @@ twentytwenty.toggles = {
  *
  * @param {Function} fn Callback function to run.
  */
-function twentytwentyDomReady( fn ) {
+function azadDomReady( fn ) {
 	if ( typeof fn !== 'function' ) {
 		return;
 	}
@@ -649,13 +660,13 @@ function twentytwentyDomReady( fn ) {
 	document.addEventListener( 'DOMContentLoaded', fn, false );
 }
 
-twentytwentyDomReady( function() {
-	twentytwenty.toggles.init();	// Handle toggles
-	twentytwenty.coverModals.init();	// Handle cover modals
-	twentytwenty.intrinsicRatioVideos.init();	// Retain aspect ratio of videos on window resize
-	twentytwenty.modalMenu.init();	// Modal Menu
-	twentytwenty.primaryMenu.init();	// Primary Menu
-	twentytwenty.touchEnabled.init();	// Add class to body if device is touch-enabled
+azadDomReady( function() {
+	azad.toggles.init();	// Handle toggles
+	azad.coverModals.init();	// Handle cover modals
+	azad.intrinsicRatioVideos.init();	// Retain aspect ratio of videos on window resize
+	azad.modalMenu.init();	// Modal Menu
+	azad.primaryMenu.init();	// Primary Menu
+	azad.touchEnabled.init();	// Add class to body if device is touch-enabled
 } );
 
 /*	-----------------------------------------------------------------------------------------------
@@ -664,7 +675,7 @@ twentytwentyDomReady( function() {
 
 /* Toggle an attribute ----------------------- */
 
-function twentytwentyToggleAttribute( element, attribute, trueVal, falseVal ) {
+function azadToggleAttribute( element, attribute, trueVal, falseVal ) {
 	if ( trueVal === undefined ) {
 		trueVal = true;
 	}
@@ -684,7 +695,7 @@ function twentytwentyToggleAttribute( element, attribute, trueVal, falseVal ) {
  * @param {HTMLElement} target
  * @param {number} duration
  */
-function twentytwentyMenuToggle( target, duration ) {
+function azadMenuToggle( target, duration ) {
 	var initialParentHeight, finalParentHeight, menu, menuItems, transitionListener,
 		initialPositions = [],
 		finalPositions = [];
@@ -717,9 +728,11 @@ function twentytwentyMenuToggle( target, duration ) {
 	// The whole process happens without giving the browser a chance to render, so it's invisible.
 	target.classList.toggle( 'active' );
 
-	// Step 4: prepare animation.
-	// Position all the items with absolute offsets, at the same starting position.
-	// Shouldn't result in any visual changes if done right.
+	/*
+	* Step 4: prepare animation.
+	* Position all the items with absolute offsets, at the same starting position.
+	* Shouldn't result in any visual changes if done right.
+	*/
 	menu.classList.add( 'is-toggling' );
 	target.classList.toggle( 'active' );
 	menuItems.forEach( function( menuItem, index ) {
@@ -730,15 +743,19 @@ function twentytwentyMenuToggle( target, duration ) {
 		menuItem.style.transform = 'translate(' + initialPosition.x + 'px, ' + initialPosition.y + 'px)';
 	} );
 
-	// The double rAF is unfortunately needed, since we're toggling CSS classes, and
-	// the only way to ensure layout completion here across browsers is to wait twice.
-	// This just delays the start of the animation by 2 frames and is thus not an issue.
+	/*
+	* The double rAF is unfortunately needed, since we're toggling CSS classes, and
+	* the only way to ensure layout completion here across browsers is to wait twice.
+	* This just delays the start of the animation by 2 frames and is thus not an issue.
+	*/
 	requestAnimationFrame( function() {
 		requestAnimationFrame( function() {
-			// Step 5: start animation by moving everything to final position.
-			// All the layout work has already happened, while we were preparing for the animation.
-			// The animation now runs entirely in CSS, using cheap CSS properties (opacity and transform)
-			// that don't trigger the layout or paint stages.
+			/*
+			* Step 5: start animation by moving everything to final position.
+			* All the layout work has already happened, while we were preparing for the animation.
+			* The animation now runs entirely in CSS, using cheap CSS properties (opacity and transform)
+			* that don't trigger the layout or paint stages.
+			*/
 			menu.classList.add( 'is-animating' );
 			menuItems.forEach( function( menuItem, index ) {
 				var finalPosition = finalPositions[ index ];
@@ -780,7 +797,7 @@ function twentytwentyMenuToggle( target, duration ) {
  * @param {string} query
  * @return {NodeList} parents matching query
  */
-function twentytwentyFindParents( target, query ) {
+function azadFindParents( target, query ) {
 	var parents = [];
 
 	// recursively go up the DOM adding matches to the parents array
