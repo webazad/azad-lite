@@ -42,7 +42,7 @@
         <!-- BIG WRAPPER BEGINS -->
         <main class="big-wrapper">
             <!-- HEADER SECTION BEGINS -->
-            <header class="azad-header">
+            <header class="azad-header" style="background-color:<?php echo get_theme_mod( 'dh_bg', 'transparent' ); ?>;color:<?php echo get_theme_mod( 'hg_text_color', 'transparent'); ?>;">
                 <?php //get_template_part('template-parts/header-top.php'); ?>
                 <?php azad_header_top(); ?>
                 <div class="azad-container">

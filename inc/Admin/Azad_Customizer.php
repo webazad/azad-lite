@@ -79,7 +79,7 @@ if ( ! class_exists( 'Azad_Customizer' ) ) :
             // DESKTOP HEADER
             $wp_customize->add_section( 'desktop_header', array(
                 'title'             => __( 'Desktop Header', 'azad-lite' ),
-                'description'       => 'Write something here...', 
+                'description'       => 'Desktop Header Customization Is Here...', 
                 'priority'          => 11,
                 'panel'             => 'header_panel',
                 'capability'        => 'edit_theme_options'
@@ -87,7 +87,7 @@ if ( ! class_exists( 'Azad_Customizer' ) ) :
             // RESPONSIVE HEADER
             $wp_customize->add_section( 'responsive_header', array(
                 'title'             => __( 'Responsive Header', 'azad-lite' ),
-                'description'       => 'Write something here...', 
+                'description'       => 'Responsive Header Customization Is Here...',
                 'priority'          => 11,
                 'panel'             => 'header_panel',
                 'capability'        => 'edit_theme_options'
@@ -138,7 +138,8 @@ if ( ! class_exists( 'Azad_Customizer' ) ) :
                 'default'           => '',
             ) );
             $wp_customize->add_setting( 'dh_bg', array(
-                'default'           => '',
+                'default'           => '#ffffff',
+                'transport'         => 'postMessage'
             ) );
             // RESPONSIVE HEADER
             $wp_customize->add_setting( 'rh_logo_width', array(
@@ -154,7 +155,8 @@ if ( ! class_exists( 'Azad_Customizer' ) ) :
                 'default'           => '',
             ) );
             $wp_customize->add_setting( 'rh_bg', array(
-                'default'           => '',
+                'default'           => '#ffffff',
+                'transport'         => 'postMessage'
             ) );
             // FOOTER SETTINGS
             $wp_customize->add_setting( 'footer_bg_image', array(
@@ -250,8 +252,8 @@ if ( ! class_exists( 'Azad_Customizer' ) ) :
                 'settings'          => 'dh_padding_bottom',    
             ) ) );
             $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'dh_bg', array(
-                'label'             => 'Desktop Header Logo Width',
-                'description'       => 'Desktop header logo width...',        
+                'label'             => 'Desktop Header Background Color',
+                'description'       => 'Select desktop header background color...',        
                 'section'           => 'desktop_header',
                 'settings'          => 'dh_bg',    
             ) ) );
@@ -281,8 +283,8 @@ if ( ! class_exists( 'Azad_Customizer' ) ) :
                 'settings'          => 'rh_padding_bottom',    
             ) ) );
             $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'rh_bg', array(
-                'label'             => 'Responsive Header Logo Width',
-                'description'       => 'Responsive header logo with here...',        
+                'label'             => 'Responsive Header Background Color',
+                'description'       => 'Select responsive header background color...',        
                 'section'           => 'responsive_header',
                 'settings'          => 'rh_bg',    
             ) ) );

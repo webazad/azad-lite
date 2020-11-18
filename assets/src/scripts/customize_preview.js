@@ -8,12 +8,10 @@
 
     $(document).ready(function(){
 
-        
-        
-        //Update the site description in real time...
-        wp.customize( 'blogdescription', function( value ) {
+        //Update site title color in real time...
+        wp.customize( 'dh_bg', function( value ) {
             value.bind( function( newval ) {
-                $( '.site-description' ).html( newval );
+                $('.azad-header').css('background-color', newval );
             } );
         } );
     

@@ -18,7 +18,7 @@ if ( ! class_exists( 'Enqueue' ) ) :
 
             wp_register_script(
                 'customize_preview',
-                trailingslashit( get_template_directory_uri() ) . 'assets/js/customize_preview.js',
+                trailingslashit( get_template_directory_uri() ) . 'assets/js/customize_preview.min.js',
                 array( 'jquery', 'customize-preview' ),
                 wp_get_theme('azad-lite')->get( 'Version' ),
                 true
@@ -37,33 +37,25 @@ if ( ! class_exists( 'Enqueue' ) ) :
                 'all'
             );
             wp_enqueue_style('main');
-
-            wp_register_script(
-                'menu',
-                trailingslashit( get_template_directory_uri() ) . 'assets/js/toggle-menu.js',
-                array( 'jquery'),
-                wp_get_theme('azad-lite')->get( 'Version' ),
-                true
-            );
-            wp_enqueue_script( 'menu' );
-
-            wp_register_script(
-                'preloader',
-                trailingslashit( get_template_directory_uri() ) . 'assets/js/preloader.js',
-                array('jquery'),
-                wp_get_theme( 'azad-lite' )->get( 'Version' ),
-                true
-            );
-            wp_enqueue_script( 'preloader' );
-
+            
             wp_register_script(
                 'toggles',
-                trailingslashit( get_template_directory_uri() ) . 'assets/js/toggles.js',
+                trailingslashit( get_template_directory_uri() ) . 'assets/js/toggles.min.js',
                 array( 'jquery' ),
                 wp_get_theme( 'azad-lite' )->get( 'Version' ),
                 true
             );
-            wp_enqueue_script( 'toggles' );
+            // wp_enqueue_script( 'toggles' );
+
+            wp_register_script(
+                'activation',
+                trailingslashit( get_template_directory_uri() ) . 'assets/js/activation.min.js',
+                array('jquery'),
+                wp_get_theme( 'azad-lite' )->get( 'Version' ),
+                true
+            );
+            wp_enqueue_script( 'activation' );
+
         }
         
         public static function get_instance() {

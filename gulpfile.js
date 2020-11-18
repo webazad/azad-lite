@@ -9,7 +9,7 @@ const gulp = require('gulp'),
 
 const styleSrc = './assets/src/sass/**/*.scss',
     styleDist = './assets/css',
-    scriptSrc = './assets/src/script/**/*.js',
+    scriptSrc = './assets/src/scripts/**/*.js',
     scriptDist = './assets/js';
 
 gulp.task('sass',()=>{
