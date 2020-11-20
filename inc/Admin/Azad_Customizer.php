@@ -52,7 +52,7 @@ if ( ! class_exists( 'Azad_Customizer' ) ) :
         }
 
         public function azad_add_sections( $wp_customize ) {
-            // PRELOADER SECTION
+            // PRELOADER
             $wp_customize->add_section( 'preloader_section', array(
                 'title'             => __( 'Activate Preloader', 'azad-x' ),
                 'description'       => 'Preloader loads before sites load entirely. Sometimes you can show varius preloader to your traffics.', 
@@ -62,7 +62,7 @@ if ( ! class_exists( 'Azad_Customizer' ) ) :
             ) );
             // SEARCH ICON
             $wp_customize->add_section( 'search_section', array(
-                'title'             => __( 'Enable search icon', 'azad-x' ),
+                'title'             => __( 'Enable Search Icon', 'azad-x' ),
                 'description'       => 'Enable search ion ...', 
                 'priority'          => 5,
                 'panel'             => 'global_panel',
@@ -111,16 +111,16 @@ if ( ! class_exists( 'Azad_Customizer' ) ) :
         }
 
         public function azad_add_settings( $wp_customize ) {
-            // PRELOADER SETTING
+            // PRELOADER
             $wp_customize->add_setting( 'preloader_settings', array(
                 'default'           => true,
                 'transport'         => 'refresh',
             ) );
-            // BASE COLORS SETTING
+            // BASE COLORS
             $wp_customize->add_setting( 'global_settings', array(
                 'default'           => true,
             ) );
-            // SEARCH SETTING
+            // SEARCH ICON
 			$wp_customize->add_setting( 'header_search_icon', array(
                 'default'           => true,
             ) );
@@ -173,6 +173,7 @@ if ( ! class_exists( 'Azad_Customizer' ) ) :
                 'transport'         => 'postMessage',
                 // 'transport'         => 'refresh',
             ) );
+			// COPYRIGHT SETTINGS
 			$wp_customize->add_setting( 'copyright_text', array(
                 'default'           => 'Write copyright text here...',
                 'transport'         => 'postMessage',
@@ -207,7 +208,7 @@ if ( ! class_exists( 'Azad_Customizer' ) ) :
                 'settings'          => 'header_search_icon', 
                 'type'              => 'checkbox', 
             ) ) );
-            // BASE COLORS
+            // SITE COLORS
             $wp_customize->add_control( new \WP_Customize_Color_Control( $wp_customize, 'bg_body', array(
                 'label'             => 'Select background color for footer',
                 'description'       => 'Select color...',        
@@ -307,7 +308,7 @@ if ( ! class_exists( 'Azad_Customizer' ) ) :
                 'section'           => 'footer_section',
                 'settings'          => 'footer_text_color',    
             ) ) );
-
+			// COPYRIGHT CONTROLS
             $wp_customize->add_control( 'copyright_text',  array(
                 'label'             => 'Write copyright text here...',
                 'description'       => 'Write below...',        

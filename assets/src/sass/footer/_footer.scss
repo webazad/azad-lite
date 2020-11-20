@@ -1,4 +1,7 @@
-.azad-footer {
+/**
+* :: FOOTER DESIGN
+*/
+footer.azad-footer {
     margin-top: auto;
     background: var( --bg );
     color: var( --white );
@@ -28,7 +31,7 @@
 @media only screen and ( max-width: 767px ),
 only screen and ( max-device-width: 767px ) {
 
-    .azad-footer {
+    footer.azad-footer {
         .footer-top-container {
             grid-gap: 1rem;
             grid-template-columns: 1fr;

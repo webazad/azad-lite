@@ -41,7 +41,7 @@
                 <div class="azad-copyright" style="background-color:<?php echo get_theme_mod( 'copyright_bg_color', '#000000' ); ?>;color:<?php echo get_theme_mod( 'copyright_text_color', '#ffffff' ); ?>;">
 					<div class="azad-container">
 						<div class="copyright-container">
-							<p><?php echo date( "Y" ); ?> <span><?php echo get_theme_mod( 'copyright_text', 'Write copyright text here...' ); ?> <a href="<?php echo home_url(); ?>"></span> <?php bloginfo( 'name' ); ?></a></p>
+							<p><?php echo date( "Y" ); ?> <span><?php echo get_theme_mod( 'copyright_text', 'Write copyright text here...' ); ?></span> <a href="<?php echo home_url(); ?>"> <?php bloginfo( 'name' ); ?></a></p>
 						</div>
 					</div>
                 </div>
