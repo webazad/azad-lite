@@ -7,16 +7,27 @@
 */
 get_header(); ?>
 
-<!-- SPECIAL SECTION BEGINS -->
+<!-- MAIN SECTION BEGINS -->
 <section class="azad-section">	
 	<div class="azad-container">
 		<div class="azad-section-inner-container">
-			<?php 
-				get_template_part( 'loop', 'index' ); 
-				get_sidebar();
-			?>
+			<div class="azad-post">
+
+				<?php 
+					if ( have_posts() ) : 
+						get_template_part( 'template-parts/loop', get_post_format() );					
+					else:
+						get_template_part( 'template-parts/loop', 'none' );
+					endif;
+				?>
+
+			</div>
+
+			<?php get_sidebar(); ?>
+			
 		</div>
 	</div>
-</section><!-- ends special section -->
+</section><!-- ends main section -->
 
 <?php get_footer();
+

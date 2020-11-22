@@ -6,13 +6,24 @@
 *--------------------------------------------------
  */
 get_header(); ?>
-<!-- SPECIAL SECTION BEGINS -->
-<section class="azad-search">
-    <div class="azad-container">
-        <?php 
-            get_template_part( 'loop', 'search' ); 
-            get_sidebar();
-        ?>
-    </div>
-</section><!-- ends special section -->
+
+<!-- PAGE LOOP SECTION BEGINS -->
+<section class="azad-section azad-search">	
+	<div class="azad-container">
+		<div class="loop-container">
+			<div class="azad-article">
+					<?php 
+						if ( have_posts() ) : 
+							get_template_part( 'template-parts/loop', 'search' );					
+						else:
+							get_template_part( 'template-parts/loop', 'none' );
+						endif;
+					?>
+				</article>
+			</div>
+			<?php get_sidebar(); ?>
+		</div>
+	</div>
+</section><!-- ends paeg loop section -->
+
 <?php get_footer();
