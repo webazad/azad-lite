@@ -35,4 +35,5 @@ get_header(); ?>
 		</div>
 	</div>
 </section><!-- ends special section -->
+
 <?php get_footer();

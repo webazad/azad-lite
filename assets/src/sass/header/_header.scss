@@ -7,7 +7,7 @@ body {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-			padding: 1rem 0;
+			padding: .5rem 0;
 
             .logo-wrapper {
 
@@ -20,6 +20,7 @@ body {
 
                             a {
                                 display: inline-block;
+                                color: var(--menu-text);
                                 
                                 img {
                                     height: 80px;
@@ -62,7 +63,7 @@ body {
                             position: relative;                       
 
                             a {
-                                color: #cd2653;
+                                color: var(--menu-text);
                                 display: block;
                                 padding-right: 1rem;
                                 position: relative;

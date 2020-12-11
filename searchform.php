@@ -4,14 +4,8 @@
  *
  * Used any time that get_search_form() is called.
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package WordPress
- * @subpackage Twenty_Twenty
+ * @package azad-lite
  * @since 1.0.0
- */
-
-/*
  * Generate a unique ID for each form and a string containing an aria-label if
  * one was passed to get_search_form() in the args array.
  */

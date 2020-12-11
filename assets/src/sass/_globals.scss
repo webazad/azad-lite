@@ -23,6 +23,9 @@ html {
             // justify-content: space-between;
             min-height: 100vh;
 
+            section {
+                text-align: left;
+            }
             .azad-container {
                 width: calc( 100% - 15rem );
                 margin: 0 auto;

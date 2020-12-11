@@ -12,14 +12,15 @@ get_header(); ?>
 	<div class="azad-container">
 		<div class="loop-container">
 			<div class="azad-article">
-					<?php 
-						if ( have_posts() ) : 
-							get_template_part( 'template-parts/loop', 'page' );					
-						else:
-							get_template_part( 'template-parts/loop', 'none' );
-						endif;
-					?>
-				</article>
+
+				<?php 
+					if ( have_posts() ) : 
+						get_template_part( 'template-parts/loop', 'page' );					
+					else:
+						get_template_part( 'template-parts/loop', 'none' );
+					endif;
+				?>
+				
 			</div>
 			<?php get_sidebar(); ?>
 		</div>
