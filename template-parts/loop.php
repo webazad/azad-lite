@@ -17,12 +17,16 @@
 				<div class="entry-meta">
 					<?php azad_posted_on(); ?>
 				</div><!-- .entry-meta -->
-				<?php 
-					the_content(
-						sprintf( __( 'Continue reading<span class="screen-reader-text">"%s"</span>', 'azad-gutenberg' ),
-							get_the_title()
-						)
-					);
+				<?php
+					if ( ! get_the_content() ) {
+						echo '<p>May be content field is empty.</p>'; edit_post_link( 'Edit this post...', '<p>', '</p>' );
+					} else {
+						the_content(
+							sprintf( __( 'Continue reading<span class="screen-reader-text">"%s"</span>', 'azad-gutenberg' ),
+								get_the_title()
+							)
+						);
+					}
 				?>
 			</div>
 			<footer class="article-footer">

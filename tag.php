@@ -16,9 +16,15 @@ get_header(); ?>
 					printf( __( 'Tag Archives: %s', 'azad-x' ), '<span>' . single_tag_title( '', false ) . '</span>' );
 				?>
 			</h1>
+
 			<?php 
-				get_template_part( 'loop', 'tag' ); 
+				if ( have_posts() ) : 
+					get_template_part( 'template-parts/loop', 'tag' );					
+				else:
+					get_template_part( 'template-parts/loop', 'none' );
+				endif;
 				get_sidebar();
+				
 			?>
 		</div>
 	</div>

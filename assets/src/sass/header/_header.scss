@@ -10,6 +10,7 @@ body {
 			padding: .5rem 0;
 
             .logo-wrapper {
+                align-self: center;
 
                 .logo {
 
@@ -234,6 +235,7 @@ only screen and ( max-device-width: 767px ) {
                     flex-direction: row;
                     justify-content: space-between;
                     align-items: center;
+                    align-self: stretch;
 
                     .logo {
 
@@ -281,7 +283,7 @@ only screen and ( max-device-width: 767px ) {
                             span {
                                 position: relative;
                                 width: 100%;
-                                height: 4px;
+                                height: 3px;
                                 background: red;
 
                                 &:before, &:after {

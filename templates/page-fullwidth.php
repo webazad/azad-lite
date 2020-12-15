@@ -13,11 +13,17 @@ get_header(); ?>
 <section class="azad-section azad-page">	
 	<div class="azad-stretched">
 		<div class="loop-container">
-			<?php 
-				get_template_part( 'template-parts/loop', 'page' );
-				//get_sidebar();
-			?>
+
+		<?php 
+			if ( have_posts() ) : 
+				get_template_part( 'template-parts/loop', 'page' );					
+			else:
+				get_template_part( 'template-parts/loop', 'none' );
+			endif;
+		?>
+
 		</div>
 	</div>
 </section><!-- ends paeg loop section -->
+
 <?php get_footer();

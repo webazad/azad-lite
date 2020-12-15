@@ -22,7 +22,9 @@ get_header(); ?>
 				?>
 				
 			</div>
+
 			<?php get_sidebar(); ?>
+			
 		</div>
 	</div>
 </section><!-- ends page loop section -->
