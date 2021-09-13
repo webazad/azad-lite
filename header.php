@@ -22,13 +22,7 @@
 
     <body <?php body_class(); ?>>
     
-        <?php        
-            // Check whether the preloader is activated in the customizer.
-            $enable_preloader = get_theme_mod( 'preloader_settings', false );
-            // Check whether the header search is activated in the customizer.
-            $enable_header_search = get_theme_mod( 'header_search_icon', true );									
-            
-            if ( $enable_preloader ) : ?>
+        <?php if ( get_theme_mod( 'preloader_settings', false ) ) : ?>
             <!-- PRELOADER BEGINS -->
             <div class="preloader">
                 <div class="inner">
@@ -42,7 +36,7 @@
         <!-- BIG WRAPPER BEGINS -->
         <main class="big-wrapper">
             <!-- HEADER SECTION BEGINS -->
-            <header class="azad-header" style="background-color:<?php echo get_theme_mod( 'dh_bg', 'transparent' ); ?>;color:<?php echo get_theme_mod( 'hg_text_color', 'transparent'); ?>;">
+            <header class="azad-header" style="background-color:<?php echo get_theme_mod( 'dh_bg', '#434343' ); ?>;color:<?php echo get_theme_mod( 'hg_text_color', 'transparent'); ?>;">
                 <?php //get_template_part('template-parts/header-top.php'); ?>
                 <?php azad_header_top(); ?>
                 <div class="azad-container">
@@ -142,7 +136,7 @@
                 </nav>
 				<?php
 					// Output the search modal (if it is activated in the customizer).
-					if ( true === $enable_header_search ) {
+					if ( get_theme_mod( 'header_search_icon', true ) ) {
 						get_template_part( 'template-parts/modal-search' );
 					}
 				?>

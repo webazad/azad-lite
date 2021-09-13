@@ -1,4 +1,105 @@
-.azad-404 {
-    background: var( --text );
-    padding: 5rem 0;
+.azad-section {
+
+    .error-container {
+        display: grid;
+        grid-template-columns: auto 80%;
+        justify-content: space-between;
+        align-items: center;
+        padding: 4rem 0;
+
+        .error-title {
+            span {
+                display: block !important;
+            }
+        }
+        .error-content {
+            text-align: left;
+            h1 {
+                font-size: 2rem;
+                line-height: 2.5rem;
+            }
+
+            form.search-form {
+                margin: 1rem 0;
+                padding: 0;
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+
+                label {
+                    width: 100%;
+                    align-items: stretch;
+                }
+
+                input.search-field {
+                    margin: 0 !important;
+                    padding: 1rem;
+                    border: 1px dotted #434343;
+                    border-right-style: none;
+                    background: none;
+                    width: 100%;
+                }
+                input.search-submit {
+                    margin: 0 !important;
+                    padding: 1rem;
+                    border: 1px solid #434343;
+                    border-radius: 0px 8px 8px 0px;
+                    background: #e3e3e3;
+                }
+            }
+        }
+    }    
+    
+}
+
+@media only screen and ( max-width: 767px ),
+only screen and ( max-device-width: 767px ) {
+
+    .azad-section {
+
+        .error-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 4rem;
+            align-items: center;
+            padding: 4rem 0;
+
+            .error-title {
+                span {
+                    display: block !important;
+                }
+            }
+            .error-content {
+                text-align: left;
+                h1 {
+                    font-size: 2rem;
+                    line-height: 2.5rem;
+                }
+
+                form.search-form {
+                    margin: 1rem 0;
+                    padding: 0;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+
+                    input.search-field {
+                        margin: 0 !important;
+                        padding: 1rem;
+                        border: 1px dotted #434343;
+                        border-right-style: none;
+                    }
+                    input.search-submit {
+                        margin: 0 !important;
+                        padding: 1rem;
+                        border: 1px solid #434343;
+                        border-radius: 0px 8px 8px 0px;
+                        background: #e3e3e3;
+                    }
+                }
+            }
+        }    
+        
+    }   
+
 }

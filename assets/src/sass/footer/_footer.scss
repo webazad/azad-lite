@@ -1,11 +1,11 @@
 /**
 * :: FOOTER DESIGN
 */
-footer.azad-footer {
+footer.ax-footer {
+    
     margin-top: auto;
     background: var( --bg );
     color: var( --white );
-    padding: 5rem 0 0;
 
     .footer-top-container {
         display: grid;
@@ -14,8 +14,8 @@ footer.azad-footer {
         padding: 2rem 0 2rem;
     }
 
-    .azad-copyright {
-        padding: 1rem 0;
+    .ax-copyright {
+        padding: 1.2rem 0;
         background: var( --text );
 
         .copyright-container {
@@ -31,7 +31,7 @@ footer.azad-footer {
 @media only screen and ( max-width: 767px ),
 only screen and ( max-device-width: 767px ) {
 
-    footer.azad-footer {
+    footer.ax-footer {
         .footer-top-container {
             grid-gap: 1rem;
             grid-template-columns: 1fr;
